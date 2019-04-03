@@ -232,13 +232,28 @@
   "def super": {
     "prefix": "def super",
     "body": [
-      "return super(AccountInvoice, self).finalize_invoice_move_lines(move_lines)"
+      "# result = super(AccountInvoice, self).finalize_invoice_move_lines(move_lines)",
+      "result = super(${1:NamaModel}, self).${2:NamaFungsi}(${3:nama_argument})",
+      "return result",
+      ""
     ]
   },
   "def get sequence": {
     "prefix": "def get sequence",
     "body": [
-      "doc.name = self.env['ir.sequence'].next_by_code('${1:payment.request}')"
+      "self.name = self.env['ir.sequence'].next_by_code('${1:nama.model}.sequence')",
+      "$0"
+    ]
+  },
+  "def query to PSQL":{
+    "prefix": "def query to PSQL",
+    "body": [
+      "@api.multi",
+      "def query_all_name_sale_voucher(self):",
+      "	self._cr.execute(\"SELECT name FROM sale_voucher\")",
+      "	query_rows = self._cr.dictfetchall()",
+      "	for row in query_rows:",
+      "		print(row)",
     ]
   },
   "Odoo Field Sequence": {
@@ -249,13 +264,13 @@
       "sequence = fields.Integer('Sequence')"
     ]
   },
-  "Raise User Error": {
-    "prefix": "Odoo UserError",
+  "Raise User Error (Exception Popup)": {
+    "prefix": "raise UserError (Exception Popup)",
     "body": [
-      "raise UserError('$1')"
+      "raise UserError('${1:Mohon maaf anda ..}')"
     ]
   },
-  "def button  (Odoo Class Function)": {
+  "def button (Odoo Class Function)": {
     "prefix": "def button (Odoo Class Function)",
     "body": [
       "@api.multi",
@@ -292,10 +307,54 @@
       "",
     ]
   },
-  "api depends": {
-    "prefix": "api depends",
+  "@ api.depends": {
+    "prefix": "@ api.depends",
     "body": [
       "@api.depends('${1:line_ids}')"
+    ]
+  },
+  "@api.onchange - Field": {
+    "prefix": "@ api.onchange",
+    "body": [
+      "@api.onchange('pay_method')",
+      "def clear_pay_ref(self):",
+      "	# Mengkosongkan Field Pay Ref jika Pay Method terisi Cash",
+      "	if self.pay_method == 'cash':",
+      "		self.pay_ref = False",
+      "",
+    ]
+  },
+  "@api.onchange - Popup / Warning": {
+    "prefix": "@ api.onchange",
+    "body": [
+      "@api.onchange('name')",
+      "def validate_form(self):",
+      "	## Validasi Karakter pada field 'name'",
+      "	if '*' in self.name:",
+      "		return {",
+      "			'warning': {",
+      "				'title': '${1:Nama Popup}',",
+      "				'message': '${2:Message pada Popup}',",
+      "			}",
+      "		}",
+      "$0",
+
+    ]
+  },
+  "@api.onchange - Relation Domain Changed": {
+    "prefix": "@ api.onchange",
+    "body": [
+      "@api.onchange('name')",
+      "def validate_form(self):",
+      "	## A. Validasi Karakter",
+      "	if '*' in self.name:",
+      "		return {",
+      "			'warning': {",
+      "				'title': 'Karakter Error',",
+      "				'message': 'Tidak boleh ada *',",
+      "			}",
+      "		}",
+      "",
     ]
   },
   "QQ": {
@@ -358,12 +417,6 @@
       "",
       "	%s",
       "''' % (', '.join(account_move_doc.mapped('name')))",
-    ]
-  },
-  "api.depends": {
-    "prefix": "depends",
-    "body": [
-      "@api.depends('${1:price}')",
     ]
   },
   "Manifest Template": {
