@@ -1,48 +1,35 @@
 {
-	"New security Template": {
-		"prefix": "new_security",
+	"New - Security and Access Role": {
+		"prefix": "New - Security and Access Role",
 		"body": [
+			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
 			"<odoo>",
+			"	<data>",
 			"",
-			"	<record model=\"ir.module.category\" id=\"vs_base_account\">",
-			"		<field name=\"name\">Base User</field>",
-			"		<field name=\"description\">Base User</field>",
-			"		<field name=\"sequence\">112</field>",
-			"	</record>",
+			"		<record model=\"ir.module.category\" id=\"module_${1:cafe}\">",
+			"			<field name=\"name\">Cafe</field>",
+			"			<field name=\"description\">Proses bisnis pada cafe</field>",
+			"			<field name=\"sequence\">1</field>",
+			"		</record>",
 			"",
-			"	<record model=\"res.groups\" id=\"account_base_user\">",
-			"		<field name=\"name\">Account Base User</field>",
-			"		<field name=\"category_id\" ref=\"vs_base_account\"/>",
-			"		<field name=\"implied_ids\" eval=\"[(4, ref('base.group_user'))]\"/>",
-			"	</record>",
+			"		<record model=\"res.groups\" id=\"${1:cafe}_user\">",
+			"			<field name=\"name\">Cafe Pegawai</field>",
+			"			<field name=\"category_id\" ref=\"module_${1:cafe}\"/>",
+			"			<field name=\"implied_ids\" eval=\"[(4, ref('base.group_user'))]\"/>",
+			"		</record>",
 			"",
-			"	<record model=\"ir.module.category\" id=\"accounting_ar_process\">",
-			"		<field name=\"name\">Accounting AR Process</field>",
-			"		<field name=\"description\">Manage Pembentukkan dan Pelunasan AR</field>",
-			"		<field name=\"sequence\">333</field>",
-			"	</record>",
-			"	",
-			"	<record model=\"res.groups\" id=\"ar_clerk\">",
-			"		<field name=\"name\">AR Clerk</field>",
-			"		<field name=\"category_id\" ref=\"accounting_ar_process\"/>",
-			"		<field name=\"implied_ids\" eval=\"[(4, ref('account_base_user'))]\"/>",
-			"	</record>",
+			"		<record model=\"res.groups\" id=\"${1:cafe}_manager\">",
+			"			<field name=\"name\">Cafe Manager</field>",
+			"			<field name=\"category_id\" ref=\"module_${1:cafe}\"/>",
+			"			<field name=\"implied_ids\" eval=\"[(4, ref('${2:nama_folder}.${1:cafe}_user'))]\"/>",
+			"		</record>",
 			"",
-			"",
-			"",
-			"	<!-- <record id=\"base.user_root\" model=\"res.users\">",
-			"		<field name=\"groups_id\" eval=\"[(4, ref('account.group_account_invoice')), (4, ref('account.group_account_manager'))]\"/>",
-			"	</record>",
-			"",
-			"	<record id=\"base.group_system\" model=\"res.groups\">",
-			"		<field name=\"implied_ids\" eval=\"[(4, ref('account.group_account_manager'))]\"/>",
-			"	</record>",
-			"	-->",
+			"	</data>"
 			"</odoo>"
 		],
 	},
-	"New Model Template": {
-		"prefix": "new_model",
+	"New - Model Template": {
+		"prefix": "New - Model",
 		"body": [
 			"$0<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
 			"<odoo>",
@@ -73,7 +60,7 @@
 			"								<field name=\"name\"/>",
 			"							</group>",
 			"							<group>",
-			"             </group>",
+			"							</group>",
 			"						</group>",
 			"					</sheet>",
 			"				</form>",
@@ -110,8 +97,8 @@
 			"</odoo>",
 		]
 	},
-	"New Model Template (Training)": {
-		"prefix": "new_model training",
+	"New- Model Template (Training)": {
+		"prefix": "New- Model training",
 		"body": [
 			"$0<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
 			"<odoo>",
@@ -142,7 +129,7 @@
 			"								<field name=\"name\"/>",
 			"							</group>",
 			"							<group>",
-			"             </group>",
+			"							</group>",
 			"						</group>",
 			"					</sheet>",
 			"				</form>",
@@ -202,8 +189,58 @@
 			"</odoo>"
 		],
 	},
-	"Sequence Nomenclature": {
-		"prefix": "sequence nomenclature",
+	"Xpath - After": {
+		"prefix": "Xpath - After",
+		"body": [
+			"<xpath expr=\"//field[@name='payment_term_id']\" position=\"after\">",
+			"	<field name=\"kasir_id\"/>",
+			"</xpath>",
+		],
+	},
+	"Xpath - Before": {
+		"prefix": "Xpath - Before",
+		"body": [
+			"<xpath expr=\"//field[@name='payment_term_id']\" position=\"before\">",
+			"	<field name=\"kasir_id\"/>",
+			"</xpath>",
+		],
+	},
+	"Xpath - Inside": {
+		"prefix": "Xpath - Inside",
+		"body": [
+			"<xpath expr=\"//notebook\" position=\"inside\">",
+			"	<page string=\"Other Info\">",
+			"		<field name=\"is_part_time\"/>",
+			"	</page>",
+			"</xpath>"
+		],
+	},
+	"Xpath - Replace": {
+		"prefix": "Xpath - Replace",
+		"body": [
+			"<xpath expr=\"//field[@name='kasir_id']\" position=\"replace\">",
+			"	<field name=\"kasir_id\" required=\"1\"/>",
+			"</xpath>",
+		],
+	},
+	"Xpath - Attributes": {
+		"prefix": "Xpath - Attributes",
+		"body": [
+			"<xpath expr=\"//field[@name='kasir_id']\" position=\"attributes\">",
+			"	<attribute name=\"required\">1</attribute>",
+			"</xpath>"
+		],
+	},
+	"Xpath (Complex)": {
+		"prefix": "Xpath Complex",
+		"body": [
+			"<xpath expr=\"/form/sheet/notebook/page[1]/field[@name='order_line']/tree/field[@name='discount']\" position=\"after\">",
+			"	<field name=\"kasir_id\"/>",
+			"</xpath>"
+		]
+	},
+	"New - Sequence / Nomenclature": {
+		"prefix": "New - Sequence / Nomenclature",
 		"body": [
 			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
 			"<odoo>",
@@ -219,14 +256,6 @@
 			"</odoo>",
 		],
 	},
-	"field attributes": {
-		"prefix": "attributes xpath",
-		"body": [
-			"<xpath expr=\"//field[@name='validity_date']\" position=\"attributes\">",
-			"	<attribute name=\"invisible\">1</attribute>",
-			"</xpath>"
-		],
-	},
 	"nocreate many2one": {
 		"prefix": "nocreate noopen",
 		"body": [
@@ -234,7 +263,7 @@
 		],
 	},
 	"domain": {
-		"prefix": "domain",
+		"prefix": "Domain",
 		"body": [
 			"domain=\"[('${1:Nama Field}','${2:=}','${3:Kriteria}')]\""
 		],
@@ -245,8 +274,8 @@
 			"attrs=\"{'readonly': [('state', '=', 'confirm')]}\"",
 		],
 	},
-	"Messaging di Form View": {
-		"prefix": "form messaging",
+	"Form Message and Log": {
+		"prefix": "Form Message and Log",
 		"body": [
 			"<div class=\"oe_chatter\">",
 			"	<field name=\"message_follower_ids\" widget=\"mail_followers\"/>",
@@ -254,14 +283,14 @@
 			"</div>",
 		],
 	},
-	"Simple Field": {
-		"prefix": "field simple",
+	"fo simple": {
+		"prefix": "fo simple",
 		"body": [
-			"<field name=\"$1\"/>"
+			"<field name=\"${1:nama_kolom}\"/>"
 		],
 	},
 	"Domain Date Complex": {
-		"prefix": "domain date complex",
+		"prefix": "Domain Date Complex",
 		"body": [
 			"<search string=\"Invoices Analysis\">",
             "   <filter string=\"This Year\" name=\"thisyear\"",
@@ -274,7 +303,7 @@
 		],
 	},
 	"Button Form Kanan": {
-		"prefix": "button form kanan",
+		"prefix": "Button Form Kanan",
 		"body": [
 			"<div class=\"oe_button_box\" name=\"button_box\">",
 			"	<button class=\"oe_stat_button\" type=\"object\" ",
@@ -286,8 +315,8 @@
 			"</div>",
 		],
 	},
-	"Simple Button": {
-		"prefix": "button simple",
+	"Button Simple": {
+		"prefix": "Button Simple",
 		"body": [
 			"<button name=\"${1:waiting_to_post}\" string=\"${2:Approve}\"",
 			"	states=\"waiting\"",
@@ -295,14 +324,11 @@
 		],
 	},
 	"Basic Structure": {
-		"prefix": "basic structure",
+		"prefix": "New Basic Structure",
 		"body": [
 			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
 			"<odoo>",
 			"	<data>",
-			"		<menuitem id=\"dev_cost_main\" name=\"Dev Cost\" sequence=\"200\"/>",
-			"",
-			"		<menuitem id=\"dev_cost_menu\" parent=\"dev_cost_main\" name=\"Dev Cost\" sequence=\"10\"/>",
 			"	</data>",
 			"</odoo>"
 		],
@@ -325,8 +351,8 @@
 			"context=\"{'tree_view_ref': 'account.invoice_tree', 'form_view_ref': 'account.invoice_form'}\"",
 		],
 	},
-	"title": {
-		"prefix": "title",
+	"Form title": {
+		"prefix": "Form title",
 		"body": [
 			"<div class=\"oe_title\">",
 			"	<label string=\"Payment Request\"/>",
@@ -334,22 +360,6 @@
 			"		<field name=\"name\" readonly=\"1\"/>",
 			"	</h1>",
 			"</div>",
-		],
-	},
-	"button sebelah field": {
-		"prefix": "button sebelah field",
-		"body": [
-			"<group>",
-			"	<label for=\"partner_ids\"/>",
-			"	<div class=\"o_row\">",
-			"		<field name=\"partner_ids\" widget=\"many2many_tags\"",
-			"			readonly=\"1\" nolabel=\"1\"",
-			"			/>",
-			"		<button name=\"update_partner\" string=\"Update\" type=\"object\"",
-			"			help=\"-\"",
-			"			class=\"oe_inline fa fa-arrow-right oe_link\"/>",
-			"	</div>",
-			"</group>",
 		],
 	},
 	"Priority sequence": {
@@ -423,6 +433,22 @@
 			"	class=\"oe_inline fa fa-arrow-right oe_link\"/>"
 		],
 	},
+	"Button Inline sebelah Field": {
+		"prefix": "Button - Inline sebelah Field",
+		"body": [
+			"<group>",
+			"	<label for=\"partner_ids\"/>",
+			"	<div class=\"o_row\">",
+			"		<field name=\"partner_ids\" widget=\"many2many_tags\"",
+			"			readonly=\"1\" nolabel=\"1\"",
+			"			/>",
+			"		<button name=\"${1:get_partner}\" string=\"Update\" type=\"object\"",
+			"			help=\"Membuka Popup Partner Terkait\"",
+			"			class=\"oe_inline fa fa-arrow-right oe_link\"/>",
+			"	</div>",
+			"</group>",
+		],
+	},
 	"Readonly": {
 		"prefix": "readonly 1",
 		"body": [
@@ -442,13 +468,13 @@
 		],
 	},
 	"statusbar": {
-		"prefix": "State statusbar",
+		"prefix": "State Statusbar",
 		"body": [
-			"<field name=\"state\" widget=\"statusbar\"/>",
+			"<field name=\"state\" widget=\"statusbar\"/>"
 		],
 	},
-	"Wizard": {
-		"prefix": "Wizard",
+	"New - Wizard / Popup": {
+		"prefix": "New - Wizard / Popup",
 		"body": [
 			"<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
 			"<odoo>",
@@ -515,29 +541,41 @@
 			"		This view can be used by accountants in order to collect information about prepaid revenues based on start date and end date. It then allows to generate the corresponding cutoff journal entry in one click.",
 			"		</p>",
 			"	</field>",
-			"</record>",
+			"</record>"
 		],
 	},
-	
-	"One2many tree After": {
-		"prefix": "one2many tree after",
-		"body": [
-			"<xpath expr=\"/form/sheet/notebook/page[1]/field[@name='order_line']/tree/field[@name='discount']\" position=\"after\">",
-			"	<field name=\"diskon_input\"/>",
-			"</xpath>"
-		]
-	},
-	"MenuItem":{
-		"prefix": "_menu_item",
+	"New Menu Item File":{
+		"description": "Jika menu item mau dipisah dalam satu file",
+		"prefix": "New Menu Item File",
 		"body":[
 			"<?xml version='1.0' encoding='UTF-8'?>",
 			"<odoo>",
 			"	<data>",
-			"		<menuitem id='${1:example_orm}_main' name='${3:Example ORM}' sequence='1'/>",
-			"		<menuitem id='${2:example_orm}'_menu",
-			"			parent='${1:example_orm}_main' name='${4:Example ORM}'/>",
+			"		<menuitem ",
+			"			id=\"main_store_menu\" ",
+			"			name=\"Store\" ",
+			"			sequence=\"1\"",
+			"			/>",
+			"		<menuitem ",
+			"			id=\"sub_master_data\"",
+			"			parent=\"main_store_menu\" ",
+			"			name=\"Kasir\"",
+			"			sequence=\"20\"",
+			"			/>",
+			"		<menuitem ",
+			"			id=\"menu_kasir\"",
+			"			parent=\"sub_master_data\" ",
+			"			name=\"Kasir\"",
+			"			sequence=\"20\"",
+			"			/>",
+			"		<menuitem ",
+			"			id=\"menu_produk\"",
+			"			parent=\"sub_master_data\" ",
+			"			name=\"Produk\"",
+			"			sequence=\"10\"",
+			"			/>",
 			"	</data>",
-			"</odoo>"
+			"</odoo>",
 		]
 	}
 }
