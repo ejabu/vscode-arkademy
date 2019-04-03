@@ -5,7 +5,6 @@
 			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
 			"<odoo>",
 			"	<data>",
-			"",
 			"		<record model=\"ir.module.category\" id=\"module_${1:cafe}\">",
 			"			<field name=\"name\">Cafe</field>",
 			"			<field name=\"description\">Proses bisnis pada cafe</field>",
@@ -23,21 +22,20 @@
 			"			<field name=\"category_id\" ref=\"module_${1:cafe}\"/>",
 			"			<field name=\"implied_ids\" eval=\"[(4, ref('${2:nama_folder}.${1:cafe}_user'))]\"/>",
 			"		</record>",
-			"",
 			"	</data>"
 			"</odoo>"
 		],
 	},
-	"New - Model Template": {
-		"prefix": "New - Model",
+	"New - Class / Model Template": {
+		"prefix": "New - Class / Model",
 		"body": [
 			"$0<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
 			"<odoo>",
 			"	<data>",
-			"		<!-- List View (Tree) -->",
-			"		<record model=\"ir.ui.view\" id=\"$1_tree\">",
-			"			<field name=\"name\">$2.tree</field>",
-			"			<field name=\"model\">$2</field>",
+			"		<!-- List View -->",
+			"		<record model=\"ir.ui.view\" id=\"${1:nama_model}_tree\">",
+			"			<field name=\"name\">${2:nama.model}.tree</field>",
+			"			<field name=\"model\">${2:nama.model}</field>",
 			"			<field name=\"arch\" type=\"xml\">",
 			"				<tree>",
 			"					<field name=\"name\"/>",
@@ -46,13 +44,12 @@
 			"		</record>",
 			"		",
 			"		<!-- Form View -->",
-			"		<record model=\"ir.ui.view\" id=\"$1_form\">",
-			"			<field name=\"name\">$2.form</field>",
-			"			<field name=\"model\">$2</field>",
+			"		<record model=\"ir.ui.view\" id=\"${1:nama_model}_form\">",
+			"			<field name=\"name\">${2:nama.model}.form</field>",
+			"			<field name=\"model\">${2:nama.model}</field>",
 			"			<field name=\"arch\" type=\"xml\">",
 			"				<form>",
 			"					<header>",
-			"						<!-- <button name=\"set_open\" string=\"Open\" type=\"object\" /> -->",
 			"					</header>",
 			"					<sheet>",
 			"						<group>",
@@ -67,46 +64,46 @@
 			"			</field>",
 			"		</record>",
 			"",
-			"		<record model=\"ir.actions.act_window\" id=\"$1_action\">",
-			"			<field name=\"name\">$3</field>",
-			"			<field name=\"res_model\">$2</field>",
+			"		<record model=\"ir.actions.act_window\" id=\"${1:nama_model}_action\">",
+			"			<field name=\"name\">${3:Nama Model}</field>",
+			"			<field name=\"res_model\">${2:nama.model}</field>",
 			"			<field name=\"view_type\">form</field>",
 			"			<field name=\"view_mode\">tree,form</field>",
 			"		</record>",
 			"",
 			"		<menuitem ",
-			"			id=\"main_$1\" ",
-			"			name=\"$3\" ",
+			"			id=\"main_${1:nama_model}\" ",
+			"			name=\"${3:Nama Model}\" ",
 			"		/>",
 			"",
 			"		<menuitem ",
-			"			id=\"menu_$1\" ",
-			"			name=\"$3\" ",
-			"			parent=\"main_$1\" ",
+			"			id=\"menu_${1:nama_model}\" ",
+			"			name=\"${3:Nama Model}\" ",
+			"			parent=\"main_${1:nama_model}\" ",
 			"		/>",
 			"",
 			"		<menuitem ",
-			"			id=\"submenu_$1\" ",
-			"			name=\"$3\" ",
-			"			parent=\"menu_$1\" ",
+			"			id=\"submenu_${1:nama_model}\" ",
+			"			name=\"${3:Nama Model}\" ",
+			"			parent=\"menu_${1:nama_model}\" ",
 			"",
-			"			action=\"$1_action\" ",
+			"			action=\"${1:nama_model}_action\" ",
 			"		/>",
 			"",
 			"	</data>",
 			"</odoo>",
 		]
 	},
-	"New- Model Template (Training)": {
-		"prefix": "New- Model training",
+	"New - Class / Model Template (Training)": {
+		"prefix": "New - Class / Model training",
 		"body": [
 			"$0<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
 			"<odoo>",
 			"	<data>",
-			"		<!-- List View (Tree) -->",
-			"		<record model=\"ir.ui.view\" id=\"$1_tree\">",
-			"			<field name=\"name\">$2.tree</field>",
-			"			<field name=\"model\">$2</field>",
+			"		<!-- List View -->",
+			"		<record model=\"ir.ui.view\" id=\"${1:nama_model}_tree\">",
+			"			<field name=\"name\">${2:nama.model}.tree</field>",
+			"			<field name=\"model\">${2:nama.model}</field>",
 			"			<field name=\"arch\" type=\"xml\">",
 			"				<tree>",
 			"					<field name=\"name\"/>",
@@ -115,13 +112,12 @@
 			"		</record>",
 			"		",
 			"		<!-- Form View -->",
-			"		<record model=\"ir.ui.view\" id=\"$1_form\">",
-			"			<field name=\"name\">$2.form</field>",
-			"			<field name=\"model\">$2</field>",
+			"		<record model=\"ir.ui.view\" id=\"${1:nama_model}_form\">",
+			"			<field name=\"name\">${2:nama.model}.form</field>",
+			"			<field name=\"model\">${2:nama.model}</field>",
 			"			<field name=\"arch\" type=\"xml\">",
 			"				<form>",
 			"					<header>",
-			"						<!-- <button name=\"set_open\" string=\"Open\" type=\"object\" /> -->",
 			"					</header>",
 			"					<sheet>",
 			"						<group>",
@@ -136,52 +132,69 @@
 			"			</field>",
 			"		</record>",
 			"",
-			"		<record model=\"ir.actions.act_window\" id=\"$1_action\">",
-			"			<field name=\"name\">$3</field>",
-			"			<field name=\"res_model\">$2</field>",
+			"		<record model=\"ir.actions.act_window\" id=\"${1:nama_model}_action\">",
+			"			<field name=\"name\">${3:Nama Model}</field>",
+			"			<field name=\"res_model\">${2:nama.model}</field>",
 			"			<field name=\"view_type\">form</field>",
 			"			<field name=\"view_mode\">tree,form</field>",
 			"		</record>",
 			"",
 			"		<menuitem ",
-			"			id=\"kakek_$1\" ",
-			"			name=\"Kakek $3\" ",
+			"			id=\"kakek_${1:nama_model}\" ",
+			"			name=\"Kakek ${3:Nama Model}\" ",
 			"		/>",
 			"",
 			"		<menuitem ",
-			"			id=\"bapak_$1\" ",
-			"			name=\"Bapak $3\" ",
-			"			parent=\"kakek_$1\" ",
+			"			id=\"bapak_${1:nama_model}\" ",
+			"			name=\"Bapak ${3:Nama Model}\" ",
+			"			parent=\"kakek_${1:nama_model}\" ",
 			"		/>",
 			"",
 			"		<menuitem ",
-			"			id=\"anak_$1\" ",
-			"			name=\"Anak $3\" ",
-			"			parent=\"bapak_$1\" ",
+			"			id=\"anak_${1:nama_model}\" ",
+			"			name=\"Anak ${3:Nama Model}\" ",
+			"			parent=\"bapak_${1:nama_model}\" ",
 			"",
-			"			action=\"$1_action\" ",
+			"			action=\"${1:nama_model}_action\" ",
 			"		/>",
 			"",
 			"	</data>",
 			"</odoo>"
 		],
 	},
-	"Inherit Model Template": {
-		"prefix": "inherit existing model",
+	"Inherit Form": {
+		"prefix": "Inherit Form ",
 		"body": [
 			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
 			"<odoo>",
 			"	<data>",
-			"		<record model=\"ir.ui.view\" id=\"invoice_supplier_form\">",
-			"			<field name=\"name\">${1:account.invoice}.form</field>",
-			"			<field name=\"model\">${1:account.invoice}</field>",
-			"			<field name=\"inherit_id\" ref=\"account.invoice_supplier_form\"/>",
+			"		<record model=\"ir.ui.view\" id=\"${2:nama_model_form}\">",
+			"			<field name=\"name\">${1:nama.model}.form</field>",
+			"			<field name=\"model\">${1:nama.model}</field>",
+			"			<field name=\"inherit_id\" ref=\"${3:sale.view_order_form}\"/>",
 			"			<field name=\"arch\" type=\"xml\">",
-			"				<xpath expr=\"//field[@name='partner_id']\" position=\"before\">",
-			"					<field name=\"kode_supplier\" />",
+			"				<xpath expr=\"//field[@name='payment_term_id']\" position=\"after\">",
+			"					<field name=\"voucher_id\" />",
 			"				</xpath>",
-			"				<xpath expr=\"//field[@name='date_due']\" position=\"attributes\">",
-			"					<attribute name=\"string\">Tgl Jatuh Tempo Inv</attribute>",
+			"			</field>",
+			"		</record>",
+			"	</data>",
+			"</odoo>"
+		],
+	},
+	"Inherit Tree": {
+		"prefix": "Inherit Tree ",
+		"body": [
+			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
+			"<odoo>",
+			"	<data>",
+			"		<record model=\"ir.ui.view\" id=\"${2:nama_model_tree}\">",
+			"			<field name=\"name\">${1:nama.model}.tree</field>",
+			"			<field name=\"model\">${1:nama.model}</field>",
+			"			<field name=\"inherit_id\" ref=\"${3:sale.view_order_tree}\"/>",
+			"			<field name=\"arch\" type=\"xml\">",
+			"				<xpath expr=\"//field[@name='partner_id']\" position=\"after\">",
+			"					<field name=\"voucher_id\" />",
 			"				</xpath>",
 			"			</field>",
 			"		</record>",
@@ -234,6 +247,9 @@
 	"Xpath (Complex)": {
 		"prefix": "Xpath Complex",
 		"body": [
+			"<xpath expr=\"/form/sheet/notebook/page/[2]\" position=\"inside\">",
+			"	<field name=\"line_ids\"/>",
+			"</xpath>",
 			"<xpath expr=\"/form/sheet/notebook/page[1]/field[@name='order_line']/tree/field[@name='discount']\" position=\"after\">",
 			"	<field name=\"kasir_id\"/>",
 			"</xpath>"
@@ -244,10 +260,10 @@
 		"body": [
 			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
 			"<odoo>",
-			"	<data noupdate=\"1\">",
-			"		<record model=\"ir.sequence\" id=\"seq_${1:payment_request}\" >",
-			"			<field name=\"name\">${3:Payment Request}</field>",
-			"			<field name=\"code\">${2:payment.request}</field>",
+			"	<data noupdate=\"1\"> <!-- Tips: File ini tidak di-baca ketika -u -->",
+			"		<record model=\"ir.sequence\" id=\"${1:nama_model}_sequence\" >",
+			"			<field name=\"name\">${3:Nama Model}</field>",
+			"			<field name=\"code\">${2:nama.model}.sequence</field>",
 			"			<field name=\"prefix\">PR/%(y)s/</field>",
 			"			<field name=\"padding\">5</field>",
 			"			<field name=\"company_id\" eval=\"False\" />",
@@ -256,22 +272,69 @@
 			"</odoo>",
 		],
 	},
-	"nocreate many2one": {
-		"prefix": "nocreate noopen",
+	"no create no open many2one": {
+		"description": "tidak ada tombol Create and Edit pada Many2one",
+		"prefix": "no create no open",
 		"body": [
 			"options=\"{'no_open': True, 'no_create': True}\"",
 		],
 	},
-	"domain": {
+	"Domain": {
 		"prefix": "Domain",
 		"body": [
-			"domain=\"[('${1:Nama Field}','${2:=}','${3:Kriteria}')]\""
+			"domain=\"[('${1:Nama Field}', '${2:Operator}', '${3:Kriteria}')]\""
 		],
 	},
-	"attrs": {
-		"prefix": "attrs readonly",
+	"Domain ~ (=)": {
+		"prefix": "Domain ~ (=)",
 		"body": [
-			"attrs=\"{'readonly': [('state', '=', 'confirm')]}\"",
+			"domain=\"[('${1:pay_method}', '${2:=}', '${3:cash}')]\"",
+		],
+	},
+	"Domain ~ (like)": {
+		"prefix": "Domain ~ (like)",
+		"body": [
+			"domain=\"[('${1:description}', '${2:like}', '${3:Jus Alpukat}')]\"",
+		],
+	},
+	"Domain ~ (ilike)": {
+		"prefix": "Domain ~ (ilike)",
+		"body": [
+			"domain=\"[('${1:description', '${2:ilike}', '${3:jus alpukat}')]\"",
+		],
+	},
+	"Domain ~ (>)": {
+		"prefix": "Domain ~ (>)",
+		"body": [
+			"domain=\"[('${1:price}', '${2:&gt;}', '${3:5000}')]\"",
+		],
+	},
+	"Domain ~ (<)": {
+		"prefix": "Domain ~ (<)",
+		"body": [
+			"domain=\"[('${1:price}', '${2:&lt;}', '${3:5000}')]\"",
+		],
+	},
+	"Domain ~ (in)": {
+		"prefix": "Domain ~ (in)",
+		"body": [
+			"domain=\"[('${1:price}', '${2:in}', [${3:'draft', 'open'}])]\"",
+		],
+	},
+	"Domain ~ (not in)": {
+		"prefix": "Domain ~ (not in)",
+		"body": [
+			"domain=\"[('${1:price}', '${2:not in}', [${3:'draft', 'open'}])]\"",
+		],
+	},
+	"Domain (All Training)": {
+		"prefix": "Domain All (Training)",
+		"body": [
+			"domain=\"[('${nama_kolom}', '=', '${kriteria}')]\"",
+			"domain=\"[('${nama_kolom}', 'ilike', '${kriteria}')]\"",
+			"domain=\"[('${nama_kolom}', '&gt;', ${5000})]\"",
+			"domain=\"[('${nama_kolom}', '&lt;', ${5000})]\"",
+			"domain=\"[('${nama_kolom}', 'in', [${1:'kriteria1', 'kriteria2'}])]\"",
 		],
 	},
 	"Form Message and Log": {
@@ -287,19 +350,6 @@
 		"prefix": "fo simple",
 		"body": [
 			"<field name=\"${1:nama_kolom}\"/>"
-		],
-	},
-	"Domain Date Complex": {
-		"prefix": "Domain Date Complex",
-		"body": [
-			"<search string=\"Invoices Analysis\">",
-            "   <filter string=\"This Year\" name=\"thisyear\"",
-            "        domain=\"['|', ('date', '=', False), '&amp;',('date','&lt;=', time.strftime('%%Y-12-31')),('date','&gt;=',time.strftime('%%Y-01-01'))]\"/>",
-            "    <filter string=\"This Month\" name=\"this_month\"",
-            "        domain=\"[('date', '&gt;=', context_today().strftime('%%Y-%%m-01'))]\"/>",
-            "    <filter string=\"Last Month\" name=\"last_month\"",
-            "        domain=\"['&amp;', ('date', '&gt;=', (context_today() - relativedelta(months=1)).strftime('%%Y-%%m-01')), ('date', '&lt;', context_today().strftime('%%Y-%%m-01'))]\"/>",
-            "</search>",
 		],
 	},
 	"Button Form Kanan": {
@@ -323,8 +373,23 @@
 			"	type=\"object\" class=\"oe_highlight\"/>",
 		],
 	},
+	"Button Wizard Action Tengah": {
+		"prefix": "Button Wizard Action Tengah",
+		"body": [
+			"<act_window",
+			"	id=\"action_${1:apply_voucher}_wizard\"",
+			"	name=\"Confirm\"",
+			"	res_model=\"${2:apply.voucher}.wizard\"",
+			"	src_model=\"${3:nama objek yg muncul di list view, contoh : sale.order}\"",
+			"	view_mode=\"form\"",
+			"	multi=\"True\"",
+			"	target=\"new\"",
+			"	key2=\"client_action_multi\"",
+			"/>",
+		],
+	},
 	"Basic Structure": {
-		"prefix": "New Basic Structure",
+		"prefix": "Basic Structure",
 		"body": [
 			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
 			"<odoo>",
@@ -333,10 +398,10 @@
 			"</odoo>"
 		],
 	},
-	"menuitem": {
-		"prefix": "menuitem",
+	"MenuItem": {
+		"prefix": "Menuitem",
 		"body": [
-			"<menuitem id=\"dev_cost_menu\" parent=\"dev_cost_main\" name=\"Dev Cost\" sequence=\"10\"/>",
+			"<menuitem id=\"${1:nama_menu}_menu\" name=\"${2:label}\" sequence=\"10\"/>",
 		],
 	},
 	"handle": {
@@ -345,8 +410,9 @@
 			"<field name=\"sequence\" widget=\"handle\"/>"
 		],
 	},
-	"tree_view_ref": {
-		"prefix": "tree_view_ref",
+	"Tree View Ref": {
+		"description": "Specified View untuk open popup pada field Many2one",
+		"prefix": "Tree View Ref",
 		"body": [
 			"context=\"{'tree_view_ref': 'account.invoice_tree', 'form_view_ref': 'account.invoice_form'}\"",
 		],
@@ -375,8 +441,8 @@
 			"</group>",
 		],
 	},
-	"Search View": {
-		"prefix": "Search View",
+	"Search View (Basic)": {
+		"prefix": "Search View (Basic)",
 		"body": [
 			"<!-- Search View -->",
 			"<record model=\"ir.ui.view\" id=\"${1:nama_model}_search\">",
@@ -385,6 +451,27 @@
 			"	<field name=\"arch\" type=\"xml\">",
 			"		<search>",
 			"			<field name=\"name\"/>",
+			"			<field name=\"pay_method\"/>",
+			"			<filter name=\"fl_draft\" string=\"Draft\" domain=\"[('state','=', 'draft')]\"/>",
+			"			<group>",
+			"				<filter name=\"gr_pay\" string=\"Bayar Via\" context=\"{'group_by':'pay_method'}\"/>",
+			"			</group>",
+			"		</search>",
+			"	</field>",
+			"</record>",
+		],
+	},
+	"Search View (Complex)": {
+		"prefix": "Search View (Complex)",
+		"body": [
+			"<!-- Search View -->",
+			"<record model=\"ir.ui.view\" id=\"${1:nama_model}_search\">",
+			"	<field name=\"name\">${2:nama.model}.search</field>",
+			"	<field name=\"model\">${2:nama.model}</field>",
+			"	<field name=\"arch\" type=\"xml\">",
+			"		<search>",
+			"			<field name=\"name\"/>",
+			"			<field name=\"pay_method\"/>",
 			"			<field name=\"partner_id\" filter_domain=\"[('partner_id','child_of',self)]\"/>",
 			"			<filter name=\"fl_closed\" string=\"Closed\" domain=\"[('state','=', 'close')]\" help=\"Assets in closed state\"/>",
 			"			<group>",
@@ -396,6 +483,19 @@
 			"</record>",
 		],
 	},
+	"Search View (Complex Datetime)": {
+		"prefix": "Search View (Complex Datetime)",
+		"body": [
+			"<search string=\"Invoices Analysis\">",
+            "   <filter string=\"This Year\" name=\"thisyear\"",
+            "        domain=\"['|', ('date', '=', False), '&amp;',('date','&lt;=', time.strftime('%%Y-12-31')),('date','&gt;=',time.strftime('%%Y-01-01'))]\"/>",
+            "    <filter string=\"This Month\" name=\"this_month\"",
+            "        domain=\"[('date', '&gt;=', context_today().strftime('%%Y-%%m-01'))]\"/>",
+            "    <filter string=\"Last Month\" name=\"last_month\"",
+            "        domain=\"['&amp;', ('date', '&gt;=', (context_today() - relativedelta(months=1)).strftime('%%Y-%%m-01')), ('date', '&lt;', context_today().strftime('%%Y-%%m-01'))]\"/>",
+            "</search>",
+		],
+	},
 	"Page and Field": {
 		"prefix": "Page and Field",
 		"body": [
@@ -405,29 +505,23 @@
 		],
 	},
 	"Notebook and page": {
-		"prefix": "notebook",
+		"prefix": "Notebook and Page",
 		"body": [
 			"<notebook>",
-			"	<page string=\"$2\">",
-			"		<field name=\"$1\"/>",
+			"	<page string=\"${2:Other Info}\">",
+			"		<field name=\"${1:line_ids}\"/>",
 			"	</page>",
 			"</notebook>"
 		],
 	},
 	"Button Header": {
-		"prefix": "button header",
+		"prefix": "Button Header pada Form View",
 		"body": [
-		    "<button name=\"${1:get_post}\" string=\"${2:Post}\" type=\"object\" />"
-		],
-	},
-	"Force Save": {
-		"prefix": "force save",
-		"body": [
-			"force_save=\"1\" readonly=\"1\"",
+		    "<button name=\"${1:set_open}\" string=\"${2:Set Open}\" type=\"object\"/>"
 		],
 	},
 	"Button Inline": {
-		"prefix": "button Inline",
+		"prefix": "Button Inline",
 		"body": [
 			"<button name=\"${1:get_post}\" string=\"${2:Post}\" type=\"object\"",
 			"	class=\"oe_inline fa fa-arrow-right oe_link\"/>"
@@ -449,46 +543,79 @@
 			"</group>",
 		],
 	},
-	"Readonly": {
-		"prefix": "readonly 1",
+	"Readonly (Basic)": {
+		"prefix": "Readonly (Basic)",
 		"body": [
 			"readonly=\"1\""
 		],
 	},
-	"invisible simple": {
-		"prefix": "invisible simple",
+	"Invisible (Basic)": {
+		"prefix": "Invisible (Basic)",
 		"body": [
 			"invisible=\"1\""
 		],
 	},
-	"invisible complex": {
-		"prefix": "invisible complex",
+	"Invisible (Complex)": {
+		"prefix": "Invisible (Complex)",
 		"body": [
 			"attrs=\"{'invisible':[('pay_method', '=', 'cash')]}\""
 		],
 	},
-	"statusbar": {
+	"Readonly (Complex)": {
+		"prefix": "Readonly (Complex)",
+		"body": [
+			"attrs=\"{'readonly': [('state', '=', 'open')]}\"",
+		],
+	},
+	"State Statusbar": {
 		"prefix": "State Statusbar",
 		"body": [
 			"<field name=\"state\" widget=\"statusbar\"/>"
 		],
 	},
-	"New - Wizard / Popup": {
-		"prefix": "New - Wizard / Popup",
+	"New - Wizard / Popup (Basic)": {
+		"prefix": "New - Wizard / Popup (Basic)",
 		"body": [
 			"<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
 			"<odoo>",
 			"	<data>",
-			"		<record id=\"$1_wizard\" model=\"ir.ui.view\" >",
-			"			<field name=\"name\">$2.wizard</field>",
-			"			<field name=\"model\">$2.wizard</field>",
+			"		<record id=\"${1:apply_voucher}_wizard\" model=\"ir.ui.view\" >",
+			"			<field name=\"name\">${2:apply.voucher}.wizard</field>",
+			"			<field name=\"model\">${2:apply.voucher}.wizard</field>",
+			"			<field name=\"arch\" type=\"xml\">",
+			"				<form>",
+			"					<group>",
+			"						<field name=\"name\"/>",
+			"					</group>",
+			"					<footer>",
+			"						<!-- <button type=\"object\" name=\"process_wizard\" string=\"Process\" class=\"oe_highlight\"/> -->",
+			"						or",
+			"						<button string=\"Cancel\" class=\"oe_link\" special=\"cancel\" />",
+			"					</footer>",
+			"				</form>",
+			"			</field>",
+			"		</record>",
+			"	</data>",
+			"</odoo>"
+		],
+	},
+	"New - Wizard / Popup (Lengkap)": {
+		"description": "Ditambah Action Button Tengah",
+		"prefix": "New - Wizard / Popup (Lengkap)",
+		"body": [
+			"<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+			"<odoo>",
+			"	<data>",
+			"		<record id=\"${1:apply_voucher}_wizard\" model=\"ir.ui.view\" >",
+			"			<field name=\"name\">${2:apply.voucher}.wizard</field>",
+			"			<field name=\"model\">${2:apply.voucher}.wizard</field>",
 			"			<field name=\"arch\" type=\"xml\">",
 			"				<form>",
 			"					<div style=\"white-space: pre-line;\">",
-			"						<p><h5>Sistem akan men-update data dari dokumen faktur pajak yang dipilih.</h5>",
-			"						Fitur ini bisa digunakan untuk keperluan sbb. :",
-			"						1. Adanya perubahan Alamat PKP dari Perusahaan",
-			"						2. Adanya perubahan <b>Alamat Pajak</b> dari Customer</p>",
+			"						<p><h5>Sistem akan ..</h5>",
+			"						Fitur ini bisa digunakan untuk keperluan sbb.. :",
+			"						1. Perubahan nomor Voucher",
+			"						2. Adanya perubahan <b>Expiry Date</b> dari Voucher</p>",
 			"					</div>",
 			"					<group>",
 			"						<group>",
@@ -506,9 +633,9 @@
 			"			</field>",
 			"		</record>",
 			"		<act_window",
-			"			id=\"action_$1_wizard\"",
+			"			id=\"action_${1:apply_voucher}_wizard\"",
 			"			name=\"Confirm\"",
-			"			res_model=\"$2.wizard\"",
+			"			res_model=\"${2:apply.voucher}.wizard\"",
 			"			src_model=\"${3:nama objek yg muncul di list view}\"",
 			"			view_mode=\"form\"",
 			"			multi=\"True\"",
@@ -519,8 +646,20 @@
 			"</odoo>"
 		],
 	},
-	"Action Domain": {
-		"prefix": "ir_action_window dengan domain",
+	"Action (Basic)": {
+		"description": "Tidak Dengan Domain dan Specified View",
+		"prefix": "Action (Basic)",
+		"body": [
+			"<record id=\"${1:nama_model}_action\" model=\"ir.actions.act_window\">",
+			"	<field name=\"name\">${3:Nama Model}</field>",
+			"	<field name=\"res_model\">${2:nama.model}</field>",
+			"	<field name=\"view_mode\">tree,form</field>",
+			"</record>"
+		],
+	},
+	"Action (Complex)": {
+		"description": "Dengan Domain dan Specified View",
+		"prefix": "Action (Complex)",
 		"body": [
 			"<record id=\"$1_action\" model=\"ir.actions.act_window\">",
 			"	<field name=\"name\">$3</field>",
@@ -544,9 +683,9 @@
 			"</record>"
 		],
 	},
-	"New Menu Item File":{
+	"New - Menu Item File":{
 		"description": "Jika menu item mau dipisah dalam satu file",
-		"prefix": "New Menu Item File",
+		"prefix": "New - Menu Item File",
 		"body":[
 			"<?xml version='1.0' encoding='UTF-8'?>",
 			"<odoo>",
@@ -576,6 +715,82 @@
 			"			/>",
 			"	</data>",
 			"</odoo>",
+		]
+	},
+	"Force Save": {
+		"description": "Untuk Readonly yang bisa berubah karena onchange Odoo 11.0",
+		"prefix": "force save",
+		"body": [
+			"force_save=\"1\" readonly=\"1\"",
+		],
+	},
+	"New - Print Page Format": {
+		"prefix": "New - Print Page Format",
+		"body": [
+			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
+			"<odoo>",
+			"	<data>",
+			"		<record model=\"report.paperformat\" id=\"${1:nama_ukuran_kertas}_format\">",
+			"			<field name=\"name\">${2:nama ukuran kertas}</field>",
+			"			<field name=\"default\" eval=\"False\" />",
+			"			<!-- <field name=\"format\">a5</field> --> <!-- Tips : Bisa pilih ukuran yg sudah ada -->",
+			"			<field name=\"format\">custom</field>",
+			"			<field name=\"page_width\">50</field>",
+			"			<field name=\"page_height\">500</field>",
+			"			<field name=\"orientation\">Landscape</field>",
+			"			<field name=\"margin_top\">10</field>",
+			"			<field name=\"margin_bottom\">20</field>",
+			"			<field name=\"margin_left\">7</field>",
+			"			<field name=\"margin_right\">7</field>",
+			"			<field name=\"header_line\" eval=\"False\" />",
+			"			<field name=\"header_spacing\">35</field> <!-- Tips : Hide unnecessary header -->",
+			"		</record>",
+			"	</data>",
+			"</odoo>"
+		],
+	},
+	"New - Print": {
+		"prefix": "New - Print",
+		"body": [
+			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
+			"<odoo>",
+			"	<data>",
+			"		<report",
+			"			id=\"${1:nama_model}_hardcopy\"",
+			"			model=\"${2:nama.model}\"",
+			"			string=\"${3:Nama Model}\"",
+			"			name=\"${4:nama_modul}.${1:nama_model}_print_template\"",
+			"			report_type=\"qweb-pdf\"",
+			"			print_report_name=\"'Nama File - %s' % (object.name).replace('/','')\"",
+			"			paperformat=\"base.paperformat_us\"/>",
+			"		/>",
+			"		<template id=\"${1:nama_model}_print_template\">",
+			"			<t t-call=\"web.html_container\">",
+			"				<t t-foreach=\"docs\" t-as=\"doc\">",
+			"					<t t-call=\"web.internal_layout\">",
+			"						<style>",
+			"							.text-center{",
+			"								text-align: center;",
+			"							}",
+			"						</style>",
+			"						<div class=\"page\">",
+			"							<div class=\"row text-center mb32\">",
+			"								<h3>",
+			"									Voucher <span t-esc=\"doc.name\" />",
+			"								</h3>",
+			"							</div>",
+			"							<div class=\"row text-center mb32\">",
+			"								Name <span style=\"font-weight:bold\" t-esc=\"doc.name\" />",
+			"								State <span style=\"font-weight:bold\" t-esc=\"doc.state\" />",
+			"								SO <span style=\"font-weight:bold\" t-esc=\"doc.sale_order_terkait\" />",
+			"							</div>",
+			"						</div>",
+			"					</t>",
+			"				</t>",
+			"			</t>",
+			"		</template>",
+			"	</data>",
+			"</odoo>"
 		]
 	}
 }

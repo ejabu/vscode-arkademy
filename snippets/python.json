@@ -344,17 +344,17 @@
       "\"\"\""
     ]
   },
-  "Message 1 - One Line": {
-    "prefix": "message 1 - Simple",
+  "String Literals (Basic - Oneline)": {
+    "prefix": "String Literals (Basic - Oneline)",
     "body": [
       "referensi_po = \"PO : %s\" % (self.origin)"
     ]
   },
-  "Message 2- Multi Line": {
-    "prefix": "message 2 - multi-line",
+  "String Literals (Complex - Multiline)": {
+    "prefix": "String Literals (Complex - Multiline)",
     "body": [
       "message = '''",
-      "	Journal ditemukan lebih dari satu",
+      "	Dokumen terkait ditemukan lebih dari satu, yaitu :",
       "",
       "	%s",
       "''' % (', '.join(account_move_doc.mapped('name')))",
@@ -471,10 +471,10 @@
       "		ids_to_change = self._context.get('active_ids')",
       "		active_model = self._context.get('active_model')",
       "		doc_ids = self.env[active_model].browse(ids_to_change)",
-      "		# 1. Execute another function",
-      "		# doc_ids.confirm_payment()",
+      "		# 1. Run another function",
+      "		# doc_ids.set_open()",
       "",
-      "		# 2. Modify selected Data",
+      "		# 2. Modify selected Document",
       "		# doc_ids.write(",
       "		#     {",
       "		#         'state' : self.name",
