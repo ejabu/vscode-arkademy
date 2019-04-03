@@ -26,7 +26,7 @@
 			"			\"stopOnEntry\": false,",
 			"			\"console\": \"integratedTerminal\",",
 			"			\"pythonPath\": \"C:/Program Files (x86)/Odoo 12.0/python/python.exe\", // untuk Odoo 12",
-			"			\"program\": \"C:/Program Files (x86)/'Odoo 12.0'/server/odoo-bin\", // untuk Odoo 12",
+			"			\"program\": \"C:/Program Files (x86)/Odoo 12.0/server/odoo-bin\", // untuk Odoo 12",
 			"			\"args\": [",
 			"				\"--config=C:/Program Files (x86)/Odoo 12.0/server/odoo.conf\",",
 			"				// \"--database=tutor1,tutor2\",",
