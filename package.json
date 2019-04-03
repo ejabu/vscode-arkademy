@@ -8,7 +8,7 @@
         "url": "https://github.com/ejabu/arkademy-vsce.git"
     },
     "publisher": "arkademy",
-    "version": "0.37.0",
+    "version": "0.38.0",
     "enableProposedApi": false,
     "engines": {
         "vscode": "^1.25.0"
