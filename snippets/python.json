@@ -52,7 +52,7 @@
       "class ${1:NamaModel}(models.Model):",
       "	_name = '${2:nama.model}'",
       "",
-      "	name = fields.Char(string='Name')"
+      "	name = fields.Char(string='${1:Label Kolom}')"
     ]
   },
   "Intermediate model":{
@@ -441,7 +441,7 @@
       "  'application': True,",
       "  'category': 'Academy Day 1',",
       "  'summary': 'Catat penjualan sederhana',",
-      "  'license': 'OPL-1',",
+      "  'license': 'GPL-2',",
       "  'website': 'https://www.arkana.co.id/',",
       "  'description': \"\"\"",
       "'${1:Nama Business App / Module}'",
@@ -466,8 +466,8 @@
       "domain=[('journal_id_type', '=', 'bank'), ('payment_type', '=', 'inbound')]",
     ]
   },
-  "buka wizard dari py (basic)": {
-    "prefix": "buka wizard dari py",
+  "def Popup / Wizard (Basic)": {
+    "prefix": "def Popup / Wizard (Basic)",
     "description": "Popup dengan Form / Tree View tidak ditentukan",
     "body": [
       "@api.multi",
@@ -484,8 +484,8 @@
       "",
     ]
   },
-  "buka wizard dari py (Advance)": {
-    "prefix": "buka wizard dari py (advance)",
+  "def Popup / Wizard (Advance)": {
+    "prefix": "def Popup / Wizard (Advance)",
     "description": "Popup dengan Form / Tree View yang ditentukan",
     "body": [
       "@api.multi",

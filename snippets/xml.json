@@ -428,17 +428,18 @@
 			"</div>",
 		],
 	},
-	"Priority sequence": {
-		"prefix": "Priority sequence",
+	"Priority / Sequence": {
+		"prefix": "Priority / Sequence",
 		"body": [
-			"<field name=\"priority\">30</field>"
-		],
+			"<field name=\"priority\">${1:20}</field>"
+		]
 	},
 	"Group": {
 		"prefix": "Group",
 		"body": [
 			"<group>",
-			"</group>",
+			"	${1:<field name=\"nama_kolom\"/>}$0",
+			"</group>"
 		],
 	},
 	"Search View (Basic)": {
@@ -499,8 +500,8 @@
 	"Page and Field": {
 		"prefix": "Page and Field",
 		"body": [
-			"<page string=\"$1\">",
-			"	<field name=\"$2\"/>",
+			"<page string=\"${2:Other Info}\">",
+			"	<field name=\"${1:line_ids}\"/>$0",
 			"</page>"
 		],
 	},
