@@ -1,11 +1,11 @@
 {
-	"New Model Access Definition":{
-		"prefix": "New Model Access Definition",
+	"New - Model Access Definition":{
+		"prefix": "New - Model Access Definition",
 		"body": [
-      "id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink",
-      "155413668584221869,random,model_sale_voucher,base.group_user,1,0,0,0",
-      "155413668685933041,random,model_sale_voucher,sales_team.group_sale_salesman,1,1,1,0",
-      "155413668894829551,random,model_sale_voucher,sales_team.group_sale_manager,1,1,1,1"
-    ]
-  }
+			"$0id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink",
+			"user_access_produk,random,cafe.model_${2:cafe_produk},base.group_user,1,0,0,0",
+			"pegawai_access_produk,random,cafe.model_${2:cafe_produk},${1:cafe_security}.group_cafe_user,1,1,0,0",
+			"manager_access_produk,random,cafe.model_${2:cafe_produk},${1:cafe_security}.group_cafe_manager,1,1,1,1"
+		]
+	}
 }

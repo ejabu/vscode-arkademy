@@ -2,32 +2,31 @@
 	"New - Security and Access Role": {
 		"prefix": "New - Security and Access Role",
 		"body": [
-			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
+			"$0<?xml version=\"1.0\" encoding=\"utf-8\"?>",
 			"<odoo>",
 			"	<data>",
 			"		<record model=\"ir.module.category\" id=\"module_${1:cafe}\">",
 			"			<field name=\"name\">Cafe</field>",
-			"			<field name=\"description\">Proses bisnis pada cafe</field>",
 			"			<field name=\"sequence\">1</field>",
 			"		</record>",
 			"",
-			"		<record model=\"res.groups\" id=\"${1:cafe}_user\">",
-			"			<field name=\"name\">Cafe Pegawai</field>",
+			"		<record model=\"res.groups\" id=\"group_${1:cafe}_user\">",
+			"			<field name=\"name\">Pegawai</field>",
 			"			<field name=\"category_id\" ref=\"module_${1:cafe}\"/>",
 			"			<field name=\"implied_ids\" eval=\"[(4, ref('base.group_user'))]\"/>",
 			"		</record>",
 			"",
-			"		<record model=\"res.groups\" id=\"${1:cafe}_manager\">",
-			"			<field name=\"name\">Cafe Manager</field>",
+			"		<record model=\"res.groups\" id=\"group_${1:cafe}_manager\">",
+			"			<field name=\"name\">Manager</field>",
 			"			<field name=\"category_id\" ref=\"module_${1:cafe}\"/>",
-			"			<field name=\"implied_ids\" eval=\"[(4, ref('${2:nama_folder}.${1:cafe}_user'))]\"/>",
+			"			<field name=\"implied_ids\" eval=\"[(4, ref('${2:nama_folder}.group_${1:cafe}_user'))]\"/>",
 			"		</record>",
 			"	</data>"
 			"</odoo>"
 		],
 	},
-	"New - Class / Model Template": {
-		"prefix": "New - Class / Model",
+	"New - Class 1": {
+		"prefix": "New - Class / Model (Standard)",
 		"body": [
 			"$0<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
 			"<odoo>",
@@ -72,30 +71,30 @@
 			"		</record>",
 			"",
 			"		<menuitem ",
-			"			id=\"main_${1:nama_model}\" ",
-			"			name=\"${3:Nama Model}\" ",
+			"			id=\"main_${1:nama_model}\"",
+			"			name=\"${3:Nama Model}\"",
 			"		/>",
 			"",
 			"		<menuitem ",
-			"			id=\"menu_${1:nama_model}\" ",
-			"			name=\"${3:Nama Model}\" ",
-			"			parent=\"main_${1:nama_model}\" ",
+			"			id=\"menu_${1:nama_model}\"",
+			"			name=\"${3:Nama Model}\"",
+			"			parent=\"main_${1:nama_model}\"",
 			"		/>",
 			"",
 			"		<menuitem ",
-			"			id=\"submenu_${1:nama_model}\" ",
-			"			name=\"${3:Nama Model}\" ",
-			"			parent=\"menu_${1:nama_model}\" ",
+			"			id=\"submenu_${1:nama_model}\"",
+			"			name=\"${3:Nama Model}\"",
+			"			parent=\"menu_${1:nama_model}\"",
 			"",
-			"			action=\"${1:nama_model}_action\" ",
+			"			action=\"${1:nama_model}_action\"",
 			"		/>",
 			"",
 			"	</data>",
 			"</odoo>",
 		]
 	},
-	"New - Class / Model Template (Training)": {
-		"prefix": "New - Class / Model training",
+	"New - Class 2": {
+		"prefix": "New - Class / Model (Training)",
 		"body": [
 			"$0<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
 			"<odoo>",
@@ -163,18 +162,18 @@
 		],
 	},
 	"Inherit Form": {
-		"prefix": "Inherit Form ",
+		"prefix": "Inherit Form",
 		"body": [
 			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
 			"<odoo>",
 			"	<data>",
-			"		<record model=\"ir.ui.view\" id=\"${2:nama_model_form}\">",
-			"			<field name=\"name\">${1:nama.model}.form</field>",
-			"			<field name=\"model\">${1:nama.model}</field>",
-			"			<field name=\"inherit_id\" ref=\"${3:sale.view_order_form}\"/>",
+			"		<record model=\"ir.ui.view\" id=\"${1:nama_model}_form\">",
+			"			<field name=\"name\">${2:nama.model}.form</field>",
+			"			<field name=\"model\">${2:nama.model}</field>",
+			"			<field name=\"inherit_id\" ref=\"${3:nama_modul}.${1:nama_model}_form\"/>",
 			"			<field name=\"arch\" type=\"xml\">",
-			"				<xpath expr=\"//field[@name='payment_term_id']\" position=\"after\">",
-			"					<field name=\"voucher_id\" />",
+			"				$0<xpath expr=\"//field[@name='${4:date_order}']\" position=\"before\">",
+			"					<field name=\"${5:note}\"/>",
 			"				</xpath>",
 			"			</field>",
 			"		</record>",
@@ -183,18 +182,18 @@
 		],
 	},
 	"Inherit Tree": {
-		"prefix": "Inherit Tree ",
+		"prefix": "Inherit Tree",
 		"body": [
 			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
 			"<odoo>",
 			"	<data>",
-			"		<record model=\"ir.ui.view\" id=\"${2:nama_model_tree}\">",
-			"			<field name=\"name\">${1:nama.model}.tree</field>",
-			"			<field name=\"model\">${1:nama.model}</field>",
-			"			<field name=\"inherit_id\" ref=\"${3:sale.view_order_tree}\"/>",
+			"		<record model=\"ir.ui.view\" id=\"${1:nama_model}_tree\">",
+			"			<field name=\"name\">${2:nama.model}.tree</field>",
+			"			<field name=\"model\">${2:nama.model}</field>",
+			"			<field name=\"inherit_id\" ref=\"${3:nama_modul}.${4:nama_model}_tree\"/>",
 			"			<field name=\"arch\" type=\"xml\">",
-			"				<xpath expr=\"//field[@name='partner_id']\" position=\"after\">",
-			"					<field name=\"voucher_id\" />",
+			"				<xpath expr=\"//field[@name='date_order']\" position=\"before\">",
+			"					<field name=\"note\"/>",
 			"				</xpath>",
 			"			</field>",
 			"		</record>",
@@ -205,16 +204,16 @@
 	"Xpath - After": {
 		"prefix": "Xpath - After",
 		"body": [
-			"<xpath expr=\"//field[@name='payment_term_id']\" position=\"after\">",
-			"	<field name=\"kasir_id\"/>",
+			"<xpath expr=\"//field[@name='${1:date_order}']\" position=\"${2:after}\">",
+			"	<field name=\"${3:note}\"/>",
 			"</xpath>",
 		],
 	},
 	"Xpath - Before": {
 		"prefix": "Xpath - Before",
 		"body": [
-			"<xpath expr=\"//field[@name='payment_term_id']\" position=\"before\">",
-			"	<field name=\"kasir_id\"/>",
+			"<xpath expr=\"//field[@name='${1:date_order}']\" position=\"${2:before}\">",
+			"	<field name=\"${3:note}\"/>",
 			"</xpath>",
 		],
 	},
@@ -239,8 +238,16 @@
 	"Xpath - Attributes": {
 		"prefix": "Xpath - Attributes",
 		"body": [
-			"<xpath expr=\"//field[@name='kasir_id']\" position=\"attributes\">",
+			"<xpath expr=\"//field[@name='is_aktif']\" position=\"attributes\">",
 			"	<attribute name=\"required\">1</attribute>",
+			"</xpath>"
+		],
+	},
+	"Xpath - Attributes Group": {
+		"prefix": "Xpath - Attributes Group",
+		"body": [
+			"<$0xpath expr=\"//field[@name='${1:is_aktif}']\" position=\"attributes\">",
+			"	<attribute name=\"groups\">cafe_security.group_cafe_manager</attribute>",
 			"</xpath>"
 		],
 	},
@@ -255,18 +262,18 @@
 			"</xpath>"
 		]
 	},
-	"New - Sequence / Nomenclature": {
-		"prefix": "New - Sequence / Nomenclature",
+	"New - Nomenclature sequence": {
+		"prefix": "New - Nomenclature sequence",
 		"body": [
 			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
 			"<odoo>",
-			"	<data noupdate=\"1\"> <!-- Tips: File ini tidak di-baca ketika -u -->",
+			"	<data noupdate=\"0\"> <!-- Tips: File ini tidak di-baca ketika -u -->",
 			"		<record model=\"ir.sequence\" id=\"${1:nama_model}_sequence\" >",
 			"			<field name=\"name\">${3:Nama Model}</field>",
 			"			<field name=\"code\">${2:nama.model}.sequence</field>",
-			"			<field name=\"prefix\">PR/%(y)s/</field>",
+			"			<field name=\"prefix\">Order-</field>",
 			"			<field name=\"padding\">5</field>",
-			"			<field name=\"company_id\" eval=\"False\" />",
+			"			<field name=\"suffix\">-%(day)s-%(month)s-%(y)s</field>",
 			"		</record>",
 			"	</data>",
 			"</odoo>",
@@ -279,6 +286,12 @@
 			"options=\"{'no_open': True, 'no_create': True}\"",
 		],
 	},
+	"position attributes": {
+		"prefix": "position attributes",
+		"body": [
+			"position=\"attributes\"",
+		],
+	},
 	"Domain": {
 		"prefix": "Domain",
 		"body": [
@@ -288,7 +301,7 @@
 	"Domain ~ (=)": {
 		"prefix": "Domain ~ (=)",
 		"body": [
-			"domain=\"[('${1:pay_method}', '${2:=}', '${3:cash}')]\"",
+			"domain=\"[('${1:payment_method}', '${2:=}', '${3:cash}')]\"",
 		],
 	},
 	"Domain ~ (like)": {
@@ -346,14 +359,30 @@
 			"</div>",
 		],
 	},
-	"fo simple": {
-		"prefix": "fo simple",
+	"Label for": {
+		"prefix": "Label for",
 		"body": [
-			"<field name=\"${1:nama_kolom}\"/>"
+			"$0<label for=\"${1:nama_kolom}\"/>"
 		],
 	},
-	"Button Form Kanan": {
-		"prefix": "Button Form Kanan",
+	"Field name": {
+		"prefix": "Field name",
+		"body": [
+			"$0<field name=\"${1:nama_kolom}\"/>"
+		],
+	},
+	"Field name dengan Image": {
+		"prefix": "Field name dengan Image",
+		"body": [
+			"$0<field name=\"image\" widget=\"image\" class=\"oe_avatar\"/>",
+			"<div class=\"oe_title\">",
+			"	<label for=\"name\" class=\"oe_edit_only\"/>",
+			"	<h1><field name=\"name\" class=\"oe_inline\"/></h1>",
+			"</div>"
+		],
+	},
+	"Button Kanan Form": {
+		"prefix": "Button Kanan Form",
 		"body": [
 			"<div class=\"oe_button_box\" name=\"button_box\">",
 			"	<button class=\"oe_stat_button\" type=\"object\" ",
@@ -368,19 +397,22 @@
 	"Button Simple": {
 		"prefix": "Button Simple",
 		"body": [
-			"<button name=\"${1:waiting_to_post}\" string=\"${2:Approve}\"",
+			"<button name=\"${1:waiting_to_post}\"",
+			"	string=\"${2:Approve}\"",
 			"	states=\"waiting\"",
-			"	type=\"object\" class=\"oe_highlight\"/>",
+			"	type=\"object\"",
+			"	class=\"oe_highlight\"",
+			"/>"
 		],
 	},
 	"Button Wizard Action Tengah": {
 		"prefix": "Button Wizard Action Tengah",
 		"body": [
 			"<act_window",
-			"	id=\"action_${1:apply_voucher}_wizard\"",
-			"	name=\"Confirm\"",
-			"	res_model=\"${2:apply.voucher}.wizard\"",
-			"	src_model=\"${3:nama objek yg muncul di list view, contoh : sale.order}\"",
+			"	id=\"action_${1:set_open}_wizard\"",
+			"	res_model=\"${2:set.open}.wizard\"",
+			"	name=\"${3:Set Open}\"",
+			"	src_model=\"${4:nama objek yg muncul di list view, contoh : cafe.order}\"",
 			"	view_mode=\"form\"",
 			"	multi=\"True\"",
 			"	target=\"new\"",
@@ -394,20 +426,61 @@
 			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
 			"<odoo>",
 			"	<data>",
+			"		$0",
 			"	</data>",
 			"</odoo>"
 		],
 	},
-	"MenuItem": {
-		"prefix": "Menuitem",
+	"Menu Item": {
+		"prefix": "Menu Item",
 		"body": [
-			"<menuitem id=\"${1:nama_menu}_menu\" name=\"${2:label}\" sequence=\"10\"/>",
+			"$0<menuitem",
+			"	id=\"${1:nama_menu}_menu\"",
+			"	name=\"${2:label}\"",
+			"	parent=\"${3:nama_parent_menu}\"", 
+			"/>"
+		],
+	},
+	"Menu Item Original": {
+		"prefix": "Menu Item Original",
+		"body": [
+			"<menuitem id=\"${1:nama_menu}_menu\" name=\"${2:label}\"/>",
+		],
+	},
+	"Menu Item Sequence": {
+		"prefix": "Menu Item Sequence",
+		"body": [
+			"$0sequence=\"${1:20}\""
+		],
+	},
+	"Menu Item Parent": {
+		"prefix": "Menu Item Parent",
+		"body": [
+			"$parent=\"${1:nama_parent_menu}\""
 		],
 	},
 	"handle": {
 		"prefix": "handle",
 		"body": [
 			"<field name=\"sequence\" widget=\"handle\"/>"
+		],
+	},
+	"Field string": {
+		"prefix": "Field string",
+		"body": [
+			"$0string=\"${1:Nama Label}\""
+		],
+	},
+	"Field placeholder": {
+		"prefix": "Field placeholder",
+		"body": [
+			"$0placeholder=\"${1:e.g Nomor Meja}\""
+		],
+	},
+	"many2many tags": {
+		"prefix": "many2many tags",
+		"body": [
+			"widget=\"many2many_tags\""
 		],
 	},
 	"Tree View Ref": {
@@ -446,16 +519,16 @@
 		"prefix": "Search View (Basic)",
 		"body": [
 			"<!-- Search View -->",
-			"<record model=\"ir.ui.view\" id=\"${1:nama_model}_search\">",
+			"$0<record model=\"ir.ui.view\" id=\"${1:nama_model}_search\">",
 			"	<field name=\"name\">${2:nama.model}.search</field>",
 			"	<field name=\"model\">${2:nama.model}</field>",
 			"	<field name=\"arch\" type=\"xml\">",
 			"		<search>",
 			"			<field name=\"name\"/>",
-			"			<field name=\"pay_method\"/>",
+			"			<field name=\"payment_method\"/>",
 			"			<filter name=\"fl_draft\" string=\"Draft\" domain=\"[('state','=', 'draft')]\"/>",
 			"			<group>",
-			"				<filter name=\"gr_pay\" string=\"Bayar Via\" context=\"{'group_by':'pay_method'}\"/>",
+			"				<filter name=\"gr_pay\" string=\"Bayar Via\" context=\"{'group_by':'payment_method'}\"/>",
 			"			</group>",
 			"		</search>",
 			"	</field>",
@@ -472,12 +545,12 @@
 			"	<field name=\"arch\" type=\"xml\">",
 			"		<search>",
 			"			<field name=\"name\"/>",
-			"			<field name=\"pay_method\"/>",
+			"			<field name=\"payment_method\"/>",
 			"			<field name=\"partner_id\" filter_domain=\"[('partner_id','child_of',self)]\"/>",
 			"			<filter name=\"fl_closed\" string=\"Closed\" domain=\"[('state','=', 'close')]\" help=\"Assets in closed state\"/>",
 			"			<group>",
 			"				<filter name=\"gr_day\" string=\"Day\" context=\"{'group_by':'date_paid:day'}\"/>",
-			"				<filter name=\"gr_pay\" string=\"Method\" context=\"{'group_by':'pay_method'}\"/>",
+			"				<filter name=\"gr_pay\" string=\"Method\" context=\"{'group_by':'payment_method'}\"/>",
 			"			</group>",
 			"		</search>",
 			"	</field>",
@@ -497,26 +570,47 @@
             "</search>",
 		],
 	},
-	"Page and Field": {
-		"prefix": "Page and Field",
+	"page": {
+		"prefix": "page",
 		"body": [
-			"<page string=\"${2:Other Info}\">",
-			"	<field name=\"${1:line_ids}\"/>$0",
+			"$0<page string=\"${1:Info}\">",
+			"	<field name=\"${2:line_ids}\"/>",
 			"</page>"
 		],
 	},
-	"Notebook and page": {
-		"prefix": "Notebook and Page",
+	"page o2m": {
+		"prefix": "page o2m",
 		"body": [
-			"<notebook>",
-			"	<page string=\"${2:Other Info}\">",
-			"		<field name=\"${1:line_ids}\"/>",
+			"$0<page string=\"${1:Line}\">",
+			"	<field name=\"${2:line_ids}\">",
+			"		<tree editable=\"bottom\">",
+			"			<field name=\"${3:name}\"/>",
+			"		</tree>",
+			"	</field>",
+			"</page>"
+		],
+	},
+	"notebook and page": {
+		"prefix": "notebook",
+		"body": [
+			"$0<notebook>",
+			"	<page string=\"${1:Info}\">",
+			"		<field name=\"${2:line_ids}\"/>",
 			"	</page>",
 			"</notebook>"
 		],
 	},
 	"Button Header": {
-		"prefix": "Button Header pada Form View",
+		"prefix": "Button Header",
+		"body": [
+			"<button name=\"${1:set_open}\"",
+			"	string=\"${2:Set Open}\"",
+			"	type=\"object\"",
+			"/>"
+		],
+	},
+	"Button Header Original": {
+		"prefix": "Button Header Original",
 		"body": [
 		    "<button name=\"${1:set_open}\" string=\"${2:Set Open}\" type=\"object\"/>"
 		],
@@ -529,7 +623,7 @@
 		],
 	},
 	"Button Inline sebelah Field": {
-		"prefix": "Button - Inline sebelah Field",
+		"prefix": "Button Inline sebelah Field",
 		"body": [
 			"<group>",
 			"	<label for=\"partner_ids\"/>",
@@ -542,6 +636,12 @@
 			"			class=\"oe_inline fa fa-arrow-right oe_link\"/>",
 			"	</div>",
 			"</group>",
+		],
+	},
+	"Required (Basic)": {
+		"prefix": "Required (Basic)",
+		"body": [
+			"required=\"1\""
 		],
 	},
 	"Readonly (Basic)": {
@@ -559,7 +659,13 @@
 	"Invisible (Complex)": {
 		"prefix": "Invisible (Complex)",
 		"body": [
-			"attrs=\"{'invisible':[('pay_method', '=', 'cash')]}\""
+			"attrs=\"{'invisible':[('payment_method', '=', 'cash')]}\""
+		],
+	},
+	"Invisible (States)": {
+		"prefix": "Invisible (States)",
+		"body": [
+			"states=\"draft\""
 		],
 	},
 	"Readonly (Complex)": {
@@ -568,10 +674,28 @@
 			"attrs=\"{'readonly': [('state', '=', 'open')]}\"",
 		],
 	},
-	"State Statusbar": {
-		"prefix": "State Statusbar",
+	"context popup 1": {
+		"prefix": "context popup 1",
+		"body": [
+			"context=\"{'popup': True}\"",
+		],
+	},
+	"State": {
+		"prefix": "state widget Statusbar",
 		"body": [
 			"<field name=\"state\" widget=\"statusbar\"/>"
+		],
+	},
+	"clickable=True": {
+		"prefix": "clickable=True",
+		"body": [
+			"clickable=\"True\""
+		],
+	},
+	"oe highlight": {
+		"prefix": "oe highlight",
+		"body": [
+			"class=\"oe_highlight\""
 		],
 	},
 	"New - Wizard / Popup (Basic)": {
@@ -580,18 +704,19 @@
 			"<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
 			"<odoo>",
 			"	<data>",
-			"		<record id=\"${1:apply_voucher}_wizard\" model=\"ir.ui.view\" >",
-			"			<field name=\"name\">${2:apply.voucher}.wizard</field>",
-			"			<field name=\"model\">${2:apply.voucher}.wizard</field>",
+			"		<record id=\"${1:set_open}_wizard\" model=\"ir.ui.view\">",
+			"			<field name=\"name\">${2:set.open}.wizard</field>",
+			"			<field name=\"model\">${2:set.open}.wizard</field>",
 			"			<field name=\"arch\" type=\"xml\">",
 			"				<form>",
-			"					<group>",
-			"						<field name=\"name\"/>",
-			"					</group>",
 			"					<footer>",
-			"						<!-- <button type=\"object\" name=\"process_wizard\" string=\"Process\" class=\"oe_highlight\"/> -->",
+			"						<button name=\"process_wizard\"",
+			"							string=\"Process\"",
+			"							type=\"object\"",
+			"							class=\"oe_highlight\"",
+			"							/>",
 			"						or",
-			"						<button string=\"Cancel\" class=\"oe_link\" special=\"cancel\" />",
+			"						<button string=\"Cancel\" class=\"oe_link\" special=\"cancel\"/>",
 			"					</footer>",
 			"				</form>",
 			"			</field>",
@@ -607,9 +732,9 @@
 			"<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
 			"<odoo>",
 			"	<data>",
-			"		<record id=\"${1:apply_voucher}_wizard\" model=\"ir.ui.view\" >",
-			"			<field name=\"name\">${2:apply.voucher}.wizard</field>",
-			"			<field name=\"model\">${2:apply.voucher}.wizard</field>",
+			"		<record id=\"${1:set_open}_wizard\" model=\"ir.ui.view\">",
+			"			<field name=\"name\">${2:set.open}.wizard</field>",
+			"			<field name=\"model\">${2:set.open}.wizard</field>",
 			"			<field name=\"arch\" type=\"xml\">",
 			"				<form>",
 			"					<div style=\"white-space: pre-line;\">",
@@ -628,16 +753,16 @@
 			"					<footer>",
 			"						<!-- <button type=\"object\" name=\"process_wizard\" string=\"Process\" class=\"oe_highlight\"/> -->",
 			"						or",
-			"						<button string=\"Cancel\" class=\"oe_link\" special=\"cancel\" />",
+			"						<button string=\"Cancel\" class=\"oe_link\" special=\"cancel\"/>",
 			"					</footer>",
 			"				</form>",
 			"			</field>",
 			"		</record>",
 			"		<act_window",
-			"			id=\"action_${1:apply_voucher}_wizard\"",
-			"			name=\"Confirm\"",
-			"			res_model=\"${2:apply.voucher}.wizard\"",
-			"			src_model=\"${3:nama objek yg muncul di list view}\"",
+			"			id=\"action_${1:set_open}_wizard\"",
+			"			res_model=\"${2:set.open}.wizard\"",
+			"			name=\"${3:Set Open}\"",
+			"			src_model=\"${4:nama objek yg muncul di list view, contoh : cafe.order}\"",
 			"			view_mode=\"form\"",
 			"			multi=\"True\"",
 			"			target=\"new\"",
@@ -725,6 +850,54 @@
 			"force_save=\"1\" readonly=\"1\"",
 		],
 	},
+	"editable bottom": {
+		"prefix": "editable bottom",
+		"body": [
+			"editable=\"bottom\"",
+		],
+	},
+	"default_order": {
+		"prefix": "default_order",
+		"body": [
+			"default_order=\"name desc\"",
+		],
+	},
+	"limit tree_view": {
+		"prefix": "limit tree_view",
+		"body": [
+			"limit=\"4\"",
+		],
+	},
+	"create False tree_view": {
+		"prefix": "create False tree_view",
+		"body": [
+			"create=\"false\"",
+		],
+	},
+	"edit False tree_view": {
+		"prefix": "edit False tree_view",
+		"body": [
+			"edit=\"false\"",
+		],
+	},
+	"delete False tree_view": {
+		"prefix": "delete False tree_view",
+		"body": [
+			"delete=\"false\"",
+		],
+	},
+	"sum total": {
+		"prefix": "sum total",
+		"body": [
+			"sum=\"${1:Total}\"",
+		],
+	},
+	"avg Average": {
+		"prefix": "avg Average",
+		"body": [
+			"avg=\"${1:Average}\"",
+		],
+	},
 	"New - Print Page Format": {
 		"prefix": "New - Print Page Format",
 		"body": [
@@ -750,41 +923,114 @@
 			"</odoo>"
 		],
 	},
-	"New - Print": {
-		"prefix": "New - Print",
+	"t internal layout": {
+		"prefix": "t internal layout",
+		"body": [
+			"<t t-call=\"web.internal_layout\">",
+            "</t>"
+		],
+	},
+	"t foreach": {
+		"prefix": "t foreach",
+		"body": [
+			"$0<t t-foreach=\"doc.${1:line_ids}\" t-as=\"line\">",
+			"	<span t-esc=\"line.${2:produk_id}\"/>",
+            "	<span t-esc=\"line.${3:quantity}\"/>",
+            "</t>"
+		],
+	},
+	"New - Print (Basic)": {
+		"prefix": "New - Print (Basic)",
 		"body": [
 			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
 			"<odoo>",
 			"	<data>",
 			"		<report",
-			"			id=\"${1:nama_model}_hardcopy\"",
+			"			id=\"${1:nama_model}_print\"",
 			"			model=\"${2:nama.model}\"",
 			"			string=\"${3:Nama Model}\"",
-			"			name=\"${4:nama_modul}.${1:nama_model}_print_template\"",
+			"			name=\"${4:nama_modul_ini}.${1:nama_model}_template\"",
 			"			report_type=\"qweb-pdf\"",
-			"			print_report_name=\"'Nama File - %s' % (object.name).replace('/','')\"",
+			"			print_report_name=\"'${3:Nama Model} - %s' % (object.name)\"",
 			"			paperformat=\"base.paperformat_us\"/>",
 			"		/>",
-			"		<template id=\"${1:nama_model}_print_template\">",
+			"		$0<template id=\"${1:nama_model}_template\">",
+			"			<t t-call=\"web.html_container\">",
+			"				<t t-foreach=\"docs\" t-as=\"doc\">",
+			"					Nota : <span t-esc=\"doc.name\"/>",
+			"					Status : <span t-esc=\"doc.state\"/>",
+			"				</t>",
+			"			</t>",
+			"		</template>",
+			"	</data>",
+			"</odoo>"
+		]
+	},
+	"New - Print (Complex)": {
+		"prefix": "New - Print (Complex)",
+		"body": [
+			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
+			"<odoo>",
+			"	<data>",
+			"		<report",
+			"			id=\"${1:nama_model}_print\"",
+			"			model=\"${2:nama.model}\"",
+			"			string=\"${3:Nama Model}\"",
+			"			name=\"${4:nama_modul_ini}.${1:nama_model}_template\"",
+			"			report_type=\"qweb-pdf\"",
+			"			print_report_name=\"'${3:Nama Model} - %s' % (object.name)\"",
+			"			paperformat=\"base.paperformat_us\"/>",
+			"		/>",
+			"		$0<template id=\"cafe_order_template\">",
 			"			<t t-call=\"web.html_container\">",
 			"				<t t-foreach=\"docs\" t-as=\"doc\">",
 			"					<t t-call=\"web.internal_layout\">",
 			"						<style>",
-			"							.text-center{",
-			"								text-align: center;",
+			"							table {",
+			"								border-collapse: collapse;",
+			"								width: 100%;",
 			"							}",
+			"							table td, table th {",
+			"								border: 1px solid #ddd;",
+			"								padding: 8px;",
+			"							}",
+			"							table tr:nth-child(even){background-color: #f2f2f2;}",
 			"						</style>",
-			"						<div class=\"page\">",
-			"							<div class=\"row text-center mb32\">",
-			"								<h3>",
-			"									Voucher <span t-esc=\"doc.name\" />",
-			"								</h3>",
-			"							</div>",
-			"							<div class=\"row text-center mb32\">",
-			"								Name <span style=\"font-weight:bold\" t-esc=\"doc.name\" />",
-			"								State <span style=\"font-weight:bold\" t-esc=\"doc.state\" />",
-			"								SO <span style=\"font-weight:bold\" t-esc=\"doc.sale_order_terkait\" />",
-			"							</div>",
+			"						Nota : <span t-esc=\"doc.name\"/>",
+			"						Status : <span t-esc=\"doc.state\"/>",
+			"						<div>",
+			"							<table>",
+			"								<tr>",
+			"									<th>",
+			"										Produk",
+			"									</th>",
+			"									<th>",
+			"										Qty",
+			"									</th>",
+			"									<th>",
+			"										Price",
+			"									</th>",
+			"									<th>",
+			"										Price Total",
+			"									</th>",
+			"								</tr>",
+			"								<t t-foreach=\"doc.line_ids\" t-as=\"line\">",
+			"									<tr>",
+			"										<td>",
+			"											<span t-esc=\"line.produk_id.name\"/>",
+			"										</td>",
+			"										<td>",
+			"											<span t-esc=\"line.quantity\"/>",
+			"										</td>",
+			"										<td>",
+			"											<span t-esc=\"line.price\"/>",
+			"										</td>",
+			"										<td>",
+			"											<span t-esc=\"line.price_total\"/>",
+			"										</td>",
+			"									</tr>",
+			"								</t>",
+			"							</table>",
 			"						</div>",
 			"					</t>",
 			"				</t>",

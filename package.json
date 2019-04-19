@@ -119,6 +119,10 @@
                 "when": "editorTextFocus && !editorReadonly"
             },
             {
+                "key": "ctrl+shift+x",
+                "command": "editor.action.deleteLines"
+            },
+            {
                 "key": "f9 f9",
                 "command": "editor.action.goToDeclaration",
                 "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
@@ -581,6 +585,19 @@
             {
                 "key": "alt+]",
                 "command": "editor.action.indentationToTabs"
+            },
+            {
+                "key": "ctrl+q",
+                "command": "workbench.action.closeEditorsInOtherGroups"
+            },
+            {
+                "key": "ctrl+alt+w",
+                "command": "workbench.action.closeAllEditors"
+            },
+            {
+                "key": "ctrl+\\",
+                "command": "workbench.action.debug.stop",
+                "when": "inDebugMode"
             },
             {
                 "key": "alt+v",
