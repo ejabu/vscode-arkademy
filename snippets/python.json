@@ -412,7 +412,7 @@
   "Raise User Error (Exception Popup)": {
     "prefix": "raise UserError (Exception Popup)",
     "body": [
-      "raise UserError('${1:Mohon maaf anda ..}')"
+      "raise UserError('${1:Mohon maaf tidak bisa ..}')"
     ]
   },
   "def button (Odoo Class Function)": {
