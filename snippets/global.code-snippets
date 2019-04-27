@@ -1,6 +1,7 @@
 {
 	"Odoo Launch.json (Run on Vscode)": {
-		"prefix": "Odoo Launch.json (Run on Vscode)",
+        "prefix": "Odoo Launch.json (Run on Vscode)",
+        "scope": "json",
 		"body": [
 			"{",
 			"	\"version\": \"0.2.0\",",
@@ -41,7 +42,8 @@
 		],
 	},
 	"Config Odoo odoo.conf - (Server Config)":{
-		"prefix": "Config Odoo odoo.conf - (Server Config)",
+        "prefix": "Config Odoo odoo.conf - (Server Config)",
+        "scope": "conf",
 		"body":[
 			"[options] # Required Opening Tag",
 			"xmlrpc_port = 8069",
@@ -72,7 +74,8 @@
 		]
 	},
 	"Config Odoo odoo.conf - (Server Config) Lengkap":{
-		"prefix": "Config Odoo odoo.conf - (Server Config) Lengkap",
+        "prefix": "Config Odoo odoo.conf - (Server Config) Lengkap",
+        "scope": "conf",
 		"body":[
 			"[options]",
 			"# Ref : https://gist.github.com/Guidoom/",
@@ -599,15 +602,21 @@
 			"without_demo = "
 		]
 	},
+	"Lorem Ipsum Short": {
+		"prefix": "Lorem Ipsum Short",
+		"body": [
+			"\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend pretium. Aliquam cursus \""
+		],
+	},
 	"Lorem Ipsum": {
 		"prefix": "Lorem Ipsum",
 		"body": [
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel mi ut",
+			"\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel mi ut",
 			"velit tempor aliquam eget eget enim. Proin cursus eleifend pretium. Aliquam cursus ",
 			"pellentesque interdum. Vivamus placerat id leo a pellentesque. Vivamus a congue urna,",
 			"sed porta eros. Etiam finibus magna et est aliquam, sed semper libero facilisis. ",
 			"Donec lectus lorem, rhoncus vitae quam eget, vulputate gravida elit. Praesent ultricies",
-			"eros id velit condimentum, eu ultrices nisl consequat."
+			"eros id velit condimentum, eu ultrices nisl consequat.\""
 		],
 	},
 }
