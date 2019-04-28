@@ -1,7 +1,6 @@
 {
 	"launch.json - Odoo": {
         "prefix": "launch.json - Odoo",
-        "scope": "json",
 		"body": [
 			"{",
 			"	\"version\": \"0.2.0\",",
