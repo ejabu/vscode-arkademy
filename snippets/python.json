@@ -55,8 +55,8 @@
       "	name = fields.Char(string='${3:Label dari Field}')"
     ]
   },
-  "New Model (+Lengkap)":{
-    "prefix": "New Model (+Lengkap)",
+  "New Model (Lengkap)":{
+    "prefix": "New Model (Lengkap)",
     "body": [
       "$0from odoo import models, fields, api, _",
       "from odoo.exceptions import UserError, ValidationError",

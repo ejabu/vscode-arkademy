@@ -1,6 +1,6 @@
 {
-	"Odoo Launch.json (Run on Vscode)": {
-        "prefix": "Odoo Launch.json (Run on Vscode)",
+	"launch.json - Odoo": {
+        "prefix": "launch.json - Odoo",
         "scope": "json",
 		"body": [
 			"{",
@@ -41,29 +41,31 @@
 			"}"
 		],
 	},
-	"Config Odoo odoo.conf - (Server Config)":{
-        "prefix": "Config Odoo odoo.conf - (Server Config)",
-        "scope": "conf",
+	"Config - Arkademy":{
+        "prefix": "Config - Arkademy",
 		"body":[
+			
 			"[options] # Required Opening Tag",
-			"xmlrpc_port = 8069",
+			"# Ref : https://www.odoo.com/documentation/10.0/reference/cmdline.html",
+			"",
 			"addons_path = ${1:/home/haliib/}arkademy/source/12.0/odoo/addons,${1:/home/haliib/}arkademy/source/12.0/addons,${1:/home/haliib/}arkademy/devel/training",
-			"# Filtered / Active Database",
-			"# db_name = tutor1",
 			"",
-			"# 1. Password Database Manager Odoo",
-			"admin_passwd = admin",
+			"# 1. Filtered / Active Database",
+			"# db_name = tutor1 # ~ -d",
 			"",
-			"# 2. Password Odoo to PSQL",
+			"# 2. Password Database Manager Odoo",
+			"# admin_passwd = admin",
+			"",
+			"# 3. Password Odoo to PSQL",
 			"# disesuaikan Instalasi",
-			"# db_user = odoo",
-			"# db_password = odoo",
+			"# db_user = odoo # ~ -w",
+			"# db_password = odoo # ~ -r",
 			"",
-			"# 3. Production",
+			"# 4. Production",
 			"# Semua Output pindah dari terminal ke file",
 			"# logfile = /var/log/odoo/openerp-server.log",
 			"",
-			"# 4. Development",
+			"# 5. Development",
 			"# Info dan Warn tidak terlihat. Tidak mengganggu pdb",
 			"# log_level = error",
 			"",
@@ -73,9 +75,21 @@
 			"# workers = 0"
 		]
 	},
-	"Config Odoo odoo.conf - (Server Config) Lengkap":{
-        "prefix": "Config Odoo odoo.conf - (Server Config) Lengkap",
-        "scope": "conf",
+	"Config - Development":{
+        "prefix": "Config - Development",
+		"body":[
+			"# Development",
+			"# Info dan Warn tidak terlihat. Tidak mengganggu pdb",
+			"log_level = error",
+			"",
+			"# Debugging / Pdb tidak ada auto-timeout",
+			"limit_time_real = 9999999",
+			"limit_time_cpu = 9999999",
+			"workers = 0"
+		]
+	},
+	"Config - Complete":{
+        "prefix": "Config - Complete",
 		"body":[
 			"[options]",
 			"# Ref : https://gist.github.com/Guidoom/",
