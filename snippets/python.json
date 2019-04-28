@@ -3,6 +3,10 @@
     "prefix": "from import",
     "body": "from . import ${1:nama_folder / nama_file(tanpa .py)}"
   },
+  "import UserError":{
+    "prefix": "import UserError",
+    "body": "from odoo.exceptions import UserError"
+  },
   "loop example":{
     "prefix": "loop example",
     "body": [
