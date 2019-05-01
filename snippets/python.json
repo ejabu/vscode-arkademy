@@ -63,7 +63,7 @@
     "prefix": "New Model (Lengkap)",
     "body": [
       "$0from odoo import models, fields, api, _",
-      "from odoo.exceptions import UserError, ValidationError",
+      "from odoo.exceptions import UserError",
       "",
       "class ${1:NamaModel}(models.Model):",
       "	_name = '${2:nama.model}'",
@@ -75,7 +75,7 @@
     "prefix": "Inherit Model",
     "body": [
       "from odoo import models, fields, api, _",
-      "from odoo.exceptions import UserError, ValidationError",
+      "from odoo.exceptions import UserError",
       "",
       "class ${1:NamaModel}(models.Model):",
       "	_inherit = '${2:nama.model}'",
@@ -652,7 +652,7 @@
     "prefix": "New Wizard / Popup",
     "body": [
       "from odoo import fields, models, api, _",
-      "from odoo.exceptions import UserError, ValidationError",
+      "from odoo.exceptions import UserError",
       "",
       "class ${1:SetOpen}Wizard(models.TransientModel):",
       "",

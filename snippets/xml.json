@@ -23,7 +23,18 @@
 			"		</record>",
 			"	</data>"
 			"</odoo>"
-		],
+		]
+	},
+	"New - Record Role": {
+		"prefix": "New - Record Role",
+		"body": [
+			"<record model=\"ir.rule\" id=\"${1:rule_produk_non_aktif}\">",
+			"	<field name=\"name\">${2:Produk Non Aktif}</field>",
+			"	<field name=\"model_id\" ref=\"cafe.model_cafe_produk\"/>",
+			"	<field name=\"domain_force\">[('is_aktif', '=', False)]</field>",
+			"	<field name=\"groups\" eval=\"[(4, ref('cafe_security.group_cafe_user'))]\"/>",
+			"</record>"
+		]
 	},
 	"New - Class 1": {
 		"prefix": "New - Class / Model (Standard)",
@@ -90,7 +101,7 @@
 			"		/>",
 			"",
 			"	</data>",
-			"</odoo>",
+			"</odoo>"
 		]
 	},
 	"New - Class 2": {
