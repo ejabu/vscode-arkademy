@@ -172,6 +172,11 @@ function unique5(): string{
 export function activate(context: vscode.ExtensionContext) {
 	// let NEXT_TERM_ID = 1;
 
+	context.subscriptions.push(vscode.commands.registerCommand('toggle.editor.renderIndentGuides', async () => {
+		var currentState = await vscode.workspace.getConfiguration('editor')
+		await vscode.workspace.getConfiguration().update('editor.renderIndentGuides', !currentState.renderIndentGuides, vscode.ConfigurationTarget.Global);
+
+	}));
 	context.subscriptions.push(vscode.commands.registerCommand('arkademy.setup_vscode', async () => {
 		// const terminal =  vscode.window.createTerminal(`Ext Terminal #${NEXT_TERM_ID++}`);
 		// vscode.window.showInformationMessage('Hello World 5!');
