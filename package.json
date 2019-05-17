@@ -52,6 +52,16 @@
                 "label": "Arkademy",
                 "uiTheme": "vs-dark",
                 "path": "./themes/arkademy.json"
+            },
+            {
+                "label": "Arkademy Dark II",
+                "uiTheme": "vs-dark",
+                "path": "./themes/arkademy-dr2.json"
+            },
+            {
+                "label": "Arkademy Light",
+                "uiTheme": "vs",
+                "path": "./themes/arkademy.json"
             }
         ],
         "commands": [
