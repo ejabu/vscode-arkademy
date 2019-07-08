@@ -1,24 +1,52 @@
 {
-	"Config - Arkademy":{
+	"Odoo - Addons Path":{
 		"scope": "properties",
-        "prefix": "Config - Arkademy",
+        "prefix": "Odoo - Addons Path",
 		"body":[
-			
-			"[options] # Required Opening Tag",
-			"# Ref : https://www.odoo.com/documentation/10.0/reference/cmdline.html",
+			"[options]",
 			"",
-			"addons_path = ${1:/home/haliib/}arkademy/source/12.0/odoo/addons,${1:/home/haliib/}arkademy/source/12.0/addons,${1:/home/haliib/}arkademy/devel/training",
+            "addons_path = ",
+            "\t${1:/home/haliib/}arkademy/source/12.0/odoo/addons,",
+            "\t${1:/home/haliib/}arkademy/source/12.0/addons,",
+            "\t${1:/home/haliib/}arkademy/devel/training",
+            "$0",
+		]
+	},
+	"Odoo - XMLRPC Port":{
+		"scope": "properties",
+        "prefix": "Odoo - XMLRPC Port",
+		"body":[
+            "xmlrpc_port = ${1:8069}"
+		]
+	},
+	"Odoo - XMLRPC Interface":{
+		"scope": "properties",
+        "prefix": "Odoo - XMLRPC Interface",
+		"body":[
+            "xmlrpcs_interface = ${1:0.0.0.0}"
+		]
+	},
+	"Odoo - Arkademy":{
+		"scope": "properties",
+        "prefix": "Odoo - Arkademy",
+		"body":[
+			"[options]",
+            "",
+            "addons_path = ",
+            "\t${1:/home/haliib/}arkademy/source/12.0/odoo/addons,",
+            "\t${1:/home/haliib/}arkademy/source/12.0/addons,",
+            "\t${1:/home/haliib/}arkademy/devel/training",
 			"",
-			"# 1. Filtered / Active Database",
+			"# 1. Active Database",
 			"# db_name = tutor1 # ~ -d",
 			"",
-			"# 2. Password Database Manager Odoo",
+			"# 2. Password untuk /web/database/manager",
 			"# admin_passwd = admin",
 			"",
-			"# 3. Password Odoo to PSQL",
+			"# 3. Password Odoo ke PSQL",
 			"# disesuaikan Instalasi",
-			"# db_user = odoo # ~ -w",
-			"# db_password = odoo # ~ -r",
+			"# db_user = odoo",
+			"# db_password = odoo",
 			"",
 			"# 4. Production",
 			"# Semua Output pindah dari terminal ke file",
@@ -31,9 +59,9 @@
 			"# workers = 0"
 		]
 	},
-	"Config - Development":{
+	"Odoo - Development":{
 		"scope": "properties",
-        "prefix": "Config - Development",
+        "prefix": "Odoo - Development",
 		"body":[
 			"# Development",
 			"# Debugging / Pdb tidak ada auto-timeout",
@@ -42,11 +70,12 @@
 			"workers = 0"
 		]
 	},
-	"Config - Complete":{
+	"Odoo - Reference All":{
 		"scope": "properties",
-        "prefix": "Config - Complete",
+        "prefix": "Odoo - Reference All",
 		"body":[
 			"[options]",
+			"# ${0:Ref : https://www.odoo.com/documentation/10.0/reference/cmdline.html}",
 			"# Ref : https://gist.github.com/Guidoom/",
 			"#",
 			"# WARNING:",
