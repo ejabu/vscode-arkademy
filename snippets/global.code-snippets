@@ -614,16 +614,16 @@
 			"without_demo = "
 		]
 	},
-	"Lorem Ipsum Short": {
-		"prefix": "Lorem Ipsum Short",
+	"Lorem Short": {
+		"prefix": "Lorem Short",
 		"body": [
-			"\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend pretium. Aliquam cursus \""
+			"\"Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend pretium. Aliquam cursus \""
 		],
 	},
-	"Lorem Ipsum": {
-		"prefix": "Lorem Ipsum",
+	"Lorem": {
+		"prefix": "Lorem",
 		"body": [
-			"\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel mi ut",
+			"\"Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel mi ut",
 			"velit tempor aliquam eget eget enim. Proin cursus eleifend pretium. Aliquam cursus ",
 			"pellentesque interdum. Vivamus placerat id leo a pellentesque. Vivamus a congue urna,",
 			"sed porta eros. Etiam finibus magna et est aliquam, sed semper libero facilisis. ",

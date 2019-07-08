@@ -166,6 +166,13 @@ function uuidv4(): string {
 function timestamp(): string{
 	return (new Date()).valueOf().toString()
 }
+
+function timesheet_stamp(): string{
+	var today = new Date()
+	var sentence =  "today.getHours() + '.' + today.getMinutes() + '.' + today.getSeconds()"
+	return sentence
+}
+
 function unique5(): string{
 	return Math.random().toString(10).substring(6,11);
 }
@@ -188,7 +195,7 @@ export function activate(context: vscode.ExtensionContext) {
 		for(var key in config) {
 			var value = config[key];
 			await vscode.workspace.getConfiguration().update(key, value, vscode.ConfigurationTarget.Global);
-			// await vscode.workspace.getConfiguration().update('editor.renderWhitespace', 'none', vscode.ConfigurationTarget.Global);
+			// await vscode.workspace.getConfiguration().update('editor.renderWhitespace', 'none', vscode.ConfigurationTarget.Global)
 		}
 		// Command From Linux
 		// cp.exec('date +%s%2N', {cwd: vscode.workspace.rootPath, env: process.env}, (e, stdout) => {
@@ -207,7 +214,15 @@ export function activate(context: vscode.ExtensionContext) {
 		let editor = vscode.window.activeTextEditor;
 		editor.edit(editBuilder => {
 			const unique = timestamp() + unique5()
-			editBuilder.replace(editor.selection, unique);
+			editBuilder.replace(editor.selection, unique)
+		});
+	}));
+
+	context.subscriptions.push(vscode.commands.registerCommand('arkademy.get_time_now', () => {
+		let editor = vscode.window.activeTextEditor;
+		editor.edit(editBuilder => {
+			const unique = timesheet_stamp()
+			editBuilder.replace(editor.selection, unique)
 		});
 	}));
 }

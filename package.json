@@ -27,6 +27,7 @@
     "activationEvents": [
         "onCommand:arkademy.setup_vscode",
         "onCommand:arkademy.get_unique_date",
+        "onCommand:arkademy.get_time_now",
         "onCommand:toggle.editor.renderIndentGuides"
     ],
     "main": "./out/extension.js",
@@ -77,6 +78,10 @@
             {
                 "command": "arkademy.get_unique_date",
                 "title": "Arkademy : Random Unique ID for XML"
+            },
+            {
+                "command": "arkademy.get_time_now",
+                "title": "Arkademy : Get Timestamp Now"
             }
         ],
         "keybindings": [
@@ -617,6 +622,10 @@
             {
                 "key": "alt+v",
                 "command": "arkademy.get_unique_date"
+            },
+            {
+                "key": "alt+g",
+                "command": "arkademy.get_time_now"
             },
             {
                 "key": "ctrl+\\",
