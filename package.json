@@ -624,7 +624,7 @@
                 "command": "arkademy.get_unique_date"
             },
             {
-                "key": "alt+g",
+                "key": "alt+z",
                 "command": "arkademy.get_time_now"
             },
             {

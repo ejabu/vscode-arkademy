@@ -164,13 +164,13 @@ function uuidv4(): string {
 	});
 }
 function timestamp(): string{
-	return (new Date()).valueOf().toString()
+	return (new Date()).valueOf().toString();
 }
 
-function timesheet_stamp(): string{
-	var today = new Date()
-	var sentence =  "today.getHours() + '.' + today.getMinutes() + '.' + today.getSeconds()"
-	return sentence
+function timesheet_stamp(): string {
+	var today = new Date();
+	const sentence =  `${today.getHours().toString().padStart(2, '0')}.${today.getMinutes().toString().padStart(2, '0')}.${today.getSeconds().toString().padStart(2, '0')}`;
+	return sentence;
 }
 
 function unique5(): string{
