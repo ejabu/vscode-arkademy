@@ -1,5 +1,6 @@
 {
 	"Config - Arkademy":{
+		"scope": "!md,!dart,!python,!xml,!js,!yaml,!css",
         "prefix": "Config - Arkademy",
 		"body":[
 			
@@ -31,6 +32,7 @@
 		]
 	},
 	"Config - Development":{
+		"scope": "!md,!dart,!python,!xml,!js,!yaml,!css",
         "prefix": "Config - Development",
 		"body":[
 			"# Development",
@@ -41,6 +43,7 @@
 		]
 	},
 	"Config - Complete":{
+		"scope": "!md,!dart,!python,!xml,!js,!yaml,!css",
         "prefix": "Config - Complete",
 		"body":[
 			"[options]",
@@ -574,12 +577,14 @@
 		]
 	},
 	"Lorem Short": {
+		"scope": "!md",
 		"prefix": "Lorem Short",
 		"body": [
 			"\"Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend pretium. Aliquam cursus \""
 		],
 	},
 	"Lorem": {
+		"scope": "!md",
 		"prefix": "Lorem",
 		"body": [
 			"\"Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel mi ut",
