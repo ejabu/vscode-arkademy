@@ -45,6 +45,10 @@
                 "path": "./snippets/python.json"
             },
             {
+                "language": "json",
+                "path": "./snippets/json.json"
+            },
+            {
                 "language": "csv",
                 "path": "./snippets/csv.json"
             }
