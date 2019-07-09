@@ -629,7 +629,7 @@
                 "command": "editor.action.formatDocument"
             },
             {
-                "key": "alt+;",
+                "key": "ctrl+;",
                 "command": "extension.trailing-semicolon",
                 "when": "editorTextFocus"
             },
