@@ -558,6 +558,11 @@
                 "when": "inDebugMode"
             },
             {
+                "key": "alt+0",
+                "command": "workbench.action.debug.stop",
+                "when": "inDebugMode"
+            },
+            {
                 "key": "ctrl+,",
                 "command": "workbench.debug.action.toggleRepl",
                 "when": "!inDebugRepl"
@@ -566,6 +571,10 @@
                 "key": "ctrl+,",
                 "command": "workbench.debug.panel.action.clearReplAction",
                 "when": "inDebugRepl"
+            },
+            {
+                "key": "ctrl+.",
+                "command": "workbench.action.debug.configure"
             },
             {
                 "key": "alt+\\",
@@ -591,10 +600,6 @@
                 "key": "ctrl+shift+;",
                 "command": "workbench.action.debug.stop",
                 "when": "inDebugMode"
-            },
-            {
-                "key": "ctrl+.",
-                "command": "workbench.action.debug.configure"
             },
             {
                 "key": "meta+t",
