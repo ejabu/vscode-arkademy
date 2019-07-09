@@ -451,10 +451,6 @@
                 "command": "editor.action.quickFix"
             },
             {
-                "key": "shift+alt+k",
-                "command": "workbench.action.toggleTabsVisibility"
-            },
-            {
                 "key": "alt+meta+j",
                 "command": "workbench.action.toggleFullScreen"
             },
@@ -492,11 +488,6 @@
                 "key": "shift+f4",
                 "command": "search.action.focusPreviousSearchResult",
                 "when": "hasSearchResult"
-            },
-            {
-                "key": "ctrl+shift+'",
-                "command": "workbench.action.debug.continue",
-                "when": "inDebugMode"
             },
             {
                 "key": "alt+b",
@@ -547,17 +538,22 @@
                 "when": "editorTextFocus && gitlens:activeFileStatus =~ /blameable/"
             },
             {
-                "key": "ctrl+'",
+                "key": "alt+'",
                 "command": "workbench.action.debug.stepOver",
                 "when": "inDebugMode"
             },
             {
-                "key": "ctrl+;",
+                "key": "alt+shift+'",
+                "command": "workbench.action.debug.continue",
+                "when": "inDebugMode"
+            },
+            {
+                "key": "alt+;",
                 "command": "workbench.action.debug.start",
                 "when": "!inDebugMode"
             },
             {
-                "key": "ctrl+;",
+                "key": "alt+;",
                 "command": "workbench.action.debug.restart",
                 "when": "inDebugMode"
             },
