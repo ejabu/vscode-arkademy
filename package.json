@@ -619,16 +619,11 @@
                 "command": "workbench.action.closeAllEditors"
             },
             {
-                "key": "ctrl+\\",
-                "command": "workbench.action.debug.stop",
-                "when": "inDebugMode"
-            },
-            {
                 "key": "alt+v",
                 "command": "arkademy.get_unique_date"
             },
             {
-                "key": "alt+z",
+                "key": "ctrl+j",
                 "command": "arkademy.get_time_now"
             },
             {
