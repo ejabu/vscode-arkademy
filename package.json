@@ -152,11 +152,11 @@
                 "command": "workbench.view.explorer"
             },
             {
-                "key": "alt+j",
+                "key": "alt+k",
                 "command": "workbench.action.toggleZenMode"
             },
             {
-                "key": "alt+j",
+                "key": "alt+k",
                 "command": "workbench.action.exitZenMode",
                 "when": "inZenMode"
             },
@@ -414,11 +414,6 @@
                 "when": "inputBoxFocus && searchViewletVisible && !searchInputBoxFocus"
             },
             {
-                "key": "alt+s",
-                "command": "editor.action.trimTrailingWhitespace",
-                "when": "editorTextFocus && !editorReadonly"
-            },
-            {
                 "key": "alt+y",
                 "command": "gitlens.showQuickRepoStatus"
             },
@@ -538,29 +533,28 @@
                 "when": "editorTextFocus && gitlens:activeFileStatus =~ /blameable/"
             },
             {
-                "key": "alt+'",
+                "key": "ctrl+'",
                 "command": "workbench.action.debug.stepOver",
                 "when": "inDebugMode"
             },
             {
-                "key": "alt+shift+'",
+                "key": "ctrl+shift+'",
                 "command": "workbench.action.debug.continue",
                 "when": "inDebugMode"
             },
             {
-                "key": "alt+;",
+                "key": "ctrl+;",
                 "command": "workbench.action.debug.start",
                 "when": "!inDebugMode"
             },
             {
-                "key": "alt+;",
+                "key": "ctrl+;",
                 "command": "workbench.action.debug.restart",
                 "when": "inDebugMode"
             },
             {
-                "key": "alt+0",
-                "command": "workbench.action.debug.stop",
-                "when": "inDebugMode"
+                "key": "ctrl+0",
+                "command": "workbench.action.debug.stop"
             },
             {
                 "key": "ctrl+,",
@@ -573,12 +567,25 @@
                 "when": "inDebugRepl"
             },
             {
+                "key": "ctrl+shift+,",
+                "command": "workbench.debug.action.focusVariablesView"
+            },
+            {
                 "key": "ctrl+.",
                 "command": "workbench.action.debug.configure"
             },
             {
+                "key": "ctrl+shift+.",
+                "command": "workbench.action.openSettingsJson"
+            },
+            {
                 "key": "alt+\\",
                 "command": "editor.action.toggleRenderWhitespace"
+            },
+            {
+                "key": "alt+shift+\\",
+                "command": "toggle.editor.renderIndentGuides",
+                "when": "editorTextFocus"
             },
             {
                 "key": "alt+[",
@@ -597,7 +604,7 @@
                 "command": "workbench.action.closeAllEditors"
             },
             {
-                "key": "ctrl+shift+;",
+                "key": "ctrl+alt+;",
                 "command": "workbench.action.debug.stop",
                 "when": "inDebugMode"
             },
@@ -610,12 +617,12 @@
                 "command": "editor.emmet.action.toggleComment"
             },
             {
-                "key": "alt+shift+\\",
-                "command": "editor.action.selectToBracket"
+                "key": "ctrl+\\",
+                "command": "editor.action.jumpToBracket"
             },
             {
                 "key": "ctrl+shift+\\",
-                "command": "editor.action.jumpToBracket"
+                "command": "editor.action.selectToBracket"
             },
             {
                 "key": "shift+alt+[",
@@ -631,16 +638,18 @@
             },
             {
                 "key": "alt+i",
-                "command": "editor.action.formatDocument"
+                "command": "editor.action.formatDocument",
+                "when": "editorTextFocus && !editorReadonly"
             },
             {
-                "key": "ctrl+;",
+                "key": "alt+w",
+                "command": "editor.action.trimTrailingWhitespace",
+                "when": "editorTextFocus && !editorReadonly"
+            },
+            {
+                "key": "alt+;",
                 "command": "extension.trailing-semicolon",
                 "when": "editorTextFocus"
-            },
-            {
-                "key": "ctrl+shift+,",
-                "command": "workbench.debug.action.focusVariablesView"
             },
             {
                 "key": "alt+c",
@@ -655,11 +664,6 @@
             {
                 "key": "ctrl+j",
                 "command": "arkademy.get_time_now",
-                "when": "editorTextFocus"
-            },
-            {
-                "key": "ctrl+\\",
-                "command": "toggle.editor.renderIndentGuides",
                 "when": "editorTextFocus"
             }
         ]
