@@ -605,8 +605,7 @@
             },
             {
                 "key": "ctrl+alt+;",
-                "command": "flutter.hotRestart",
-                "when": "dart-code:flutterProjectLoaded && inDebugMode"
+                "command": "flutter.hotRestart"
             },
             {
                 "key": "alt+0",
