@@ -552,6 +552,7 @@
                 "command": "workbench.action.debug.restart",
                 "when": "inDebugMode"
             },
+            
             {
                 "key": "ctrl+0",
                 "command": "workbench.action.debug.stop"
@@ -605,6 +606,11 @@
             },
             {
                 "key": "ctrl+alt+;",
+                "command": "flutter.hotRestart",
+                "when": "dart-code:flutterProjectLoaded && inDebugMode"
+            },
+            {
+                "key": "alt+0",
                 "command": "workbench.action.debug.stop",
                 "when": "inDebugMode"
             },
