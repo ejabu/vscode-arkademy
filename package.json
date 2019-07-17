@@ -303,12 +303,12 @@
             {
                 "key": "ctrl+shift+b",
                 "command": "workbench.files.action.collapseExplorerFolders",
-                "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+                "when": "explorerViewletVisible && !inputFocus && !searchViewletFocus && !searchViewletVisible"
             },
             {
-                "key": "shift+alt+c",
-                "command": "toggleSearchCaseSensitive",
-                "when": "searchViewletFocus && searchViewletVisible && !fileMatchOrFolderMatchFocus"
+                "key": "ctrl+shift+b",
+                "command": "workbench.files.action.showActiveFileInExplorer",
+                "when": "editorTextFocus"
             },
             {
                 "key": "ctrl+shift+b",
@@ -422,16 +422,6 @@
                 "command": "workbench.debug.action.focusRepl"
             },
             {
-                "key": "ctrl+shift+b",
-                "command": "workbench.files.action.showActiveFileInExplorer",
-                "when": "editorTextFocus"
-            },
-            {
-                "key": "ctrl+shift+o",
-                "command": "git.openFile",
-                "when": "isInDiffEditor || editorReadonly"
-            },
-            {
                 "key": "ctrl+t",
                 "command": "workbench.action.compareEditor.nextChange",
                 "when": "textCompareEditorVisible && isInDiffEditor"
@@ -443,7 +433,13 @@
             },
             {
                 "key": "alt+o",
-                "command": "editor.action.quickFix"
+                "command": "editor.action.quickFix",
+                "when": "editorTextFocus"
+            },
+            {
+                "key": "alt+o",
+                "command": "git.openFile",
+                "when": "isInDiffEditor"
             },
             {
                 "key": "alt+meta+j",
