@@ -113,7 +113,7 @@
                 "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
             },
             {
-                "key": "ctrl+shift+a",
+                "key": "ctrl+alt+z",
                 "command": "explorer.newFolder",
                 "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
             },
