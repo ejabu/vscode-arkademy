@@ -303,7 +303,7 @@
             {
                 "key": "ctrl+shift+b",
                 "command": "workbench.files.action.collapseExplorerFolders",
-                "when": "explorerViewletVisible && !inputFocus && !searchViewletFocus && !searchViewletVisible"
+                "when": "explorerViewletVisible && !searchViewletFocus "
             },
             {
                 "key": "ctrl+shift+b",
