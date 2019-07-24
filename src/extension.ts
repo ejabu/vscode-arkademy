@@ -7,7 +7,6 @@ const config = {
     "workbench.tree.indent": 14,
     "files.exclude": {
       "**/__pycache__": true,
-      "**/ark_cafe_demo": true,
       "**/.git": true,
       "**/.vscode": true,
       "**/*.lock": true,
@@ -90,8 +89,6 @@ const config = {
     "[xml]": {
       "editor.tabSize": 4,
       "editor.formatOnSave": false,
-      "xmlTools.splitXmlnsOnFormat": false,
-      "xmlTools.splitAttributesOnFormat": false
     },
     "[python]": {
       "editor.tabSize": 4,
@@ -101,7 +98,6 @@ const config = {
     },
     "explorer.confirmDelete": false,
     "editor.wordWrapColumn": 80,
-    "workbench.sideBar.location": "left",
     "workbench.editor.tabSizing": "shrink",
     "python.formatting.autopep8Path": "autopep8",
     "python.formatting.provider": "yapf",

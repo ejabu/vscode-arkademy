@@ -49,6 +49,10 @@
                 "path": "./snippets/json.json"
             },
             {
+                "language": "jsonc",
+                "path": "./snippets/jsonc.json"
+            },
+            {
                 "language": "csv",
                 "path": "./snippets/csv.json"
             }
