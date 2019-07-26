@@ -160,11 +160,11 @@
                 "command": "workbench.view.explorer"
             },
             {
-                "key": "alt+k",
+                "key": "meta+j",
                 "command": "workbench.action.toggleZenMode"
             },
             {
-                "key": "alt+k",
+                "key": "meta+j",
                 "command": "workbench.action.exitZenMode",
                 "when": "inZenMode"
             },
@@ -450,7 +450,7 @@
                 "when": "isInDiffEditor"
             },
             {
-                "key": "alt+meta+j",
+                "key": "meta+k",
                 "command": "workbench.action.toggleFullScreen"
             },
             {
@@ -467,11 +467,6 @@
                 "key": "ctrl+enter",
                 "command": "search.action.replaceAll",
                 "when": "replaceActive && searchViewletVisible && !findWidgetVisible"
-            },
-            {
-                "key": "ctrl+,",
-                "command": "workbench.action.terminal.clear",
-                "when": "terminalFocus"
             },
             {
                 "key": "ctrl+f10",
@@ -569,6 +564,11 @@
                 "key": "ctrl+,",
                 "command": "workbench.debug.panel.action.clearReplAction",
                 "when": "inDebugRepl && !terminalFocus"
+            },
+            {
+                "key": "ctrl+,",
+                "command": "workbench.action.terminal.clear",
+                "when": " !inDebugRepl && terminalFocus"
             },
             {
                 "key": "ctrl+shift+,",
