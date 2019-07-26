@@ -45,12 +45,16 @@
                 "path": "./snippets/python.json"
             },
             {
+                "language": "properties",
+                "path": "./snippets/properties.json"
+            },
+            {
                 "language": "json",
                 "path": "./snippets/json.json"
             },
             {
                 "language": "jsonc",
-                "path": "./snippets/jsonc.json"
+                "path": "./snippets/json.json"
             },
             {
                 "language": "csv",
@@ -465,9 +469,9 @@
                 "when": "replaceActive && searchViewletVisible && !findWidgetVisible"
             },
             {
-                "key": "alt+k",
+                "key": "ctrl+,",
                 "command": "workbench.action.terminal.clear",
-                "when": "activePanel == 'workbench.panel.terminal'"
+                "when": "terminalFocus"
             },
             {
                 "key": "ctrl+f10",
@@ -646,7 +650,7 @@
                 "when": "editorTextFocus && !editorReadonly"
             },
             {
-                "key": "alt+w",
+                "key": "ctrl+i",
                 "command": "editor.action.trimTrailingWhitespace",
                 "when": "editorTextFocus && !editorReadonly"
             },
@@ -656,7 +660,7 @@
                 "when": "editorTextFocus"
             },
             {
-                "key": "alt+c",
+                "key": "shift+alt+c",
                 "command": "center-editor-window.center",
                 "when": "editorTextFocus"
             },
