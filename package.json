@@ -563,12 +563,12 @@
             {
                 "key": "ctrl+,",
                 "command": "workbench.debug.action.toggleRepl",
-                "when": "!inDebugRepl"
+                "when": "!inDebugRepl && !terminalFocus"
             },
             {
                 "key": "ctrl+,",
                 "command": "workbench.debug.panel.action.clearReplAction",
-                "when": "inDebugRepl"
+                "when": "inDebugRepl && !terminalFocus"
             },
             {
                 "key": "ctrl+shift+,",
