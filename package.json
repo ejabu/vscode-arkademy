@@ -29,10 +29,9 @@
         "onCommand:arkademy.get_unique_date",
         "onCommand:toggle.editor.renderIndentGuides"
     ],
-    "extensionPack": [
+    "extensionDependencies": [
         "mechatroner.rainbow-csv",
-        "ms-python.python",
-        "Kasik96.format-php"
+        "ms-python.python"
     ],
     "main": "./out/extension.js",
     "contributes": {
