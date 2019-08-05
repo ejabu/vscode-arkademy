@@ -87,6 +87,7 @@
         "editor.tabSize": 4,
         "editor.formatOnSave": false,
     },
+    "xmlTools.xmlFormatterImplementation": "v2",
     "[python]": {
         "editor.tabSize": 4,
         "files.trimTrailingWhitespace": true,
@@ -94,7 +95,10 @@
         "files.insertFinalNewline": true
     },
     "workbench.editor.tabSizing": "shrink",
+    "explorer.openEditors.visible": 0,
     "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "workbench.editor.enablePreview": false,
     "search.location": "panel",
     "editor.cursorWidth": 1,
     "workbench.editor.showTabs": true,

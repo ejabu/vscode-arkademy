@@ -31,7 +31,8 @@
     ],
     "extensionDependencies": [
         "mechatroner.rainbow-csv",
-        "ms-python.python"
+        "ms-python.python",
+        "dotjoshjohnson.xml"
     ],
     "main": "./out/extension.js",
     "contributes": {
