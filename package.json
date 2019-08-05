@@ -53,7 +53,11 @@
                 "path": "./snippets/properties.json"
             },
             {
-                "language": "json,jsonc",
+                "language": "json",
+                "path": "./snippets/json.json"
+            },
+            {
+                "language": "jsonc",
                 "path": "./snippets/json.json"
             },
             {

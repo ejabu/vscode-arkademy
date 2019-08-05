@@ -354,11 +354,11 @@
 	"Domain (All Training)": {
 		"prefix": "Domain All (Training)",
 		"body": [
-			"domain=\"[('${nama_kolom}', '=', '${kriteria}')]\"",
-			"domain=\"[('${nama_kolom}', 'ilike', '${kriteria}')]\"",
-			"domain=\"[('${nama_kolom}', '&gt;', ${5000})]\"",
-			"domain=\"[('${nama_kolom}', '&lt;', ${5000})]\"",
-			"domain=\"[('${nama_kolom}', 'in', [${1:'kriteria1', 'kriteria2'}])]\"",
+			"domain=\"[('${1:nama_kolom}', '=', '${2:kriteria}')]\"",
+			"domain=\"[('${1:nama_kolom}', 'ilike', '${3:kriteria}')]\"",
+			"domain=\"[('${1:nama_kolom}', '&gt;', ${4:5000})]\"",
+			"domain=\"[('${1:nama_kolom}', '&lt;', ${5:5000})]\"",
+			"domain=\"[('${1:nama_kolom}', 'in', [${6:'kriteria1', 'kriteria2'}])]\"",
 		],
 	},
 	"Form Message and Log": {
@@ -467,7 +467,7 @@
 	"Menu Item Parent": {
 		"prefix": "Menu Item Parent",
 		"body": [
-			"$parent=\"${1:nama_parent_menu}\""
+			"parent=\"${1:nama_parent_menu}\""
 		],
 	},
 	"handle": {

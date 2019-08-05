@@ -210,7 +210,7 @@
     "prefix": "m2o Field",
     "description": "Many2one Field Tanpa Keyword Argument",
     "body": [
-      "$0${1:pegawai_id} = fields.Many2one('${2:toko.pegawai}', string='${5:Kasir}')",
+      "$0${1:pegawai_id} = fields.Many2one('${2:toko.pegawai}', string='${3:Kasir}')",
     ]
   },
   "m2o Field (Lengkap)": {
@@ -219,7 +219,7 @@
     "body": [
       "$0${1:pegawai_id} = fields.Many2one(",
       "\tcomodel_name='${2:toko.pegawai}',",
-      "\tstring='${5:Kasir}'",
+      "\tstring='${3:Kasir}'",
       "\t)"
     ]
   },
@@ -355,7 +355,7 @@
     "prefix": "messaging _inherit (Existing)",
     "body": [
       "$0_name = '${1:cafe.order}'",
-      "$_inherit = ['mail.thread', '${1:cafe.order}']"
+      "_inherit = ['mail.thread', '${1:cafe.order}']"
     ]
   },
   "orm create": {
