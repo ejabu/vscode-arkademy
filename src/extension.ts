@@ -1,12 +1,12 @@
 'use strict';
 import * as vscode from 'vscode';
-// import * as cp from 'child_process';
 
 const config = {
     "workbench.settings.useSplitJSON": false,
     "workbench.tree.indent": 14,
     "files.exclude": {
       "**/__pycache__": true,
+      "**/*.pyc": true,
       "**/.git": true,
       "**/.vscode": true,
       "**/*.lock": true,
@@ -19,6 +19,7 @@ const config = {
       "**/tmp": true,
       ".vscode": true,
     },
+    "search.useIgnoreFiles": false,
     "search.exclude": {
       "**/node_modules": true,
       "test/**": true,
@@ -29,6 +30,7 @@ const config = {
       "**/coverage": true,
       "**/*.po": true
     },
+    "python.linting.enabled": true,
     "python.linting.pylintArgs": [
       "--disable=E1003",
       "--disable=E1101",
@@ -75,14 +77,12 @@ const config = {
     "editor.mouseWheelZoom": true,
     "editor.suggestFontSize": 13,
     "editor.quickSuggestions": false,
+    "editor.quickSuggestionsDelay": 0,
     "editor.snippetSuggestions": "top",
     "editor.suggestOnTriggerCharacters": true,
     "editor.wordBasedSuggestions": true,
     "editor.minimap.enabled": false,
     "editor.formatOnSave": false,
-  
-    "workbench.startupEditor": "newUntitledFile",
-    "search.useIgnoreFiles": false,
     "[json]": {
       "editor.tabSize": 2
     },
@@ -96,16 +96,11 @@ const config = {
       "files.trimFinalNewlines": false,
       "files.insertFinalNewline": true
     },
-    "explorer.confirmDelete": false,
-    "editor.wordWrapColumn": 80,
     "workbench.editor.tabSizing": "shrink",
-    "python.formatting.autopep8Path": "autopep8",
-    "python.formatting.provider": "yapf",
     "explorer.confirmDragAndDrop": false,
     "search.location": "panel",
     "editor.cursorWidth": 1,
     "workbench.editor.showTabs": true,
-    "workbench.statusBar.feedback.visible": false,
     "workbench.list.keyboardNavigation": "simple",
     "workbench.statusBar.visible": true,
     "workbench.activityBar.visible": true,
@@ -114,11 +109,7 @@ const config = {
     "extensions.autoCheckUpdates": false,
     "extensions.autoUpdate": false,
     "editor.tabCompletion": "on",
-    "zenMode.fullScreen": false,
     "editor.autoClosingBrackets": "always",
-    "zenMode.restore": true,
-    "zenMode.hideTabs": false,
-    "diffEditor.renderSideBySide": true,
     "breadcrumbs.enabled": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "debug.toolBarLocation": "docked",
@@ -126,111 +117,40 @@ const config = {
     "telemetry.enableCrashReporter": false,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": false,
-    "editor.fontFamily": "DejaVu Sans Mono",
-    "editor.fontSize": 17,
-    "editor.lineHeight": 25,
-    "editor.fontLigatures": true,
     "files.associations": {
-        "*.json": "json"
+        "*.json": "jsonc"
     },
     "emmet.showExpandedAbbreviation": "never",
     "emmet.showAbbreviationSuggestions": false,
-    "xmlTools.enableXmlTreeView": false,
-    "projects.statusbarEnabled": false,
     "window.zoomLevel": 1,
     "editor.glyphMargin": true,
     "editor.lineNumbers": "on",
-    "zenMode.hideStatusBar": false,
-    "window.menuBarVisibility": "hidden",
-    "window.enableMenuBarMnemonics": false,
     "editor.renderWhitespace": "none",
-    "workbench.colorTheme": "Arkademy",
     "editor.occurrencesHighlight": false,
-    "git.decorations.enabled": true,
-    "git.confirmSync": false,
-    "git.enableSmartCommit": true,
-    "git.alwaysShowStagedChangesResourceGroup": true,
-    "gitHistory.hideCommitViewExplorer": false
 }
 
-function uuidv4(): string {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-      return v.toString(16);
-    });
-}
 function timestamp(): string{
     return (new Date()).valueOf().toString();
-}
-
-function timesheet_stamp(): string {
-    var today = new Date();
-    const sentence =  `${today.getHours().toString().padStart(2, '0')}.${today.getMinutes().toString().padStart(2, '0')}.${today.getSeconds().toString().padStart(2, '0')}`;
-    return sentence;
 }
 
 function unique5(): string{
     return Math.random().toString(10).substring(6,11);
 }
 export function activate(context: vscode.ExtensionContext) {
-    // let NEXT_TERM_ID = 1;
-
     context.subscriptions.push(vscode.commands.registerCommand('toggle.editor.renderIndentGuides', async () => {
         var currentState = await vscode.workspace.getConfiguration('editor')
         await vscode.workspace.getConfiguration().update('editor.renderIndentGuides', !currentState.renderIndentGuides, vscode.ConfigurationTarget.Global);
-
     }));
     context.subscriptions.push(vscode.commands.registerCommand('arkademy.setup_vscode', async () => {
-        // const terminal =  vscode.window.createTerminal(`Ext Terminal #${NEXT_TERM_ID++}`);
-        // vscode.window.showInformationMessage('Hello World 5!');
-        // let editor = vscode.window.activeTextEditor;
-
-        // Ref 
-        // https://github.com/Microsoft/vscode-extension-samples/blob/master/configuration-sample/src/extension.ts
-
         for(var key in config) {
             var value = config[key];
             await vscode.workspace.getConfiguration().update(key, value, vscode.ConfigurationTarget.Global);
-            // await vscode.workspace.getConfiguration().update('editor.renderWhitespace', 'none', vscode.ConfigurationTarget.Global)
         }
-        // Command From Linux
-        // cp.exec('date +%s%2N', {cwd: vscode.workspace.rootPath, env: process.env}, (e, stdout) => {
-        // 	if (e) {
-        // 			vscode.window.showErrorMessage(e.message);
-        // 	} else {
-        // 		editor.edit(editBuilder => {
-        // 			const hasil = stdout.trim()
-        // 			editBuilder.replace(editor.selection, hasil);
-        // 		});
-        // 	}
-        // 	});
-
     }));
     context.subscriptions.push(vscode.commands.registerCommand('arkademy.get_unique_date', () => {
         let editor = vscode.window.activeTextEditor;
         editor.edit(editBuilder => {
             const unique = timestamp() + unique5()
-            editBuilder.replace(editor.selection, unique)
-            
-            // const position = editor.selection.end;
-            // // move cursor to this new position?
-            // var addedLastLine = position.character + unique.length
-            // // var newPosition = position.with(position.line, addedLastLine);
-            // var newPosition = new vscode.Position(position.line, addedLastLine)
-            // var newSelection = new vscode.Selection(newPosition, newPosition);
-            // editor.selection = newSelection;
-
-        }).then(success => {
-            var cursorEndPosition = editor.selection.end; 
-            editor.selection = new vscode.Selection(cursorEndPosition, cursorEndPosition);
-        });
-        
-    }));
-
-    context.subscriptions.push(vscode.commands.registerCommand('arkademy.get_time_now', () => {
-        let editor = vscode.window.activeTextEditor;
-        editor.edit(editBuilder => {
-            const unique = timesheet_stamp()
             editBuilder.replace(editor.selection, unique)
         }).then(success => {
             var cursorEndPosition = editor.selection.end; 

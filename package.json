@@ -27,8 +27,12 @@
     "activationEvents": [
         "onCommand:arkademy.setup_vscode",
         "onCommand:arkademy.get_unique_date",
-        "onCommand:arkademy.get_time_now",
         "onCommand:toggle.editor.renderIndentGuides"
+    ],
+    "extensionPack": [
+        "mechatroner.rainbow-csv",
+        "ms-python.python",
+        "Kasik96.format-php"
     ],
     "main": "./out/extension.js",
     "contributes": {
@@ -49,11 +53,7 @@
                 "path": "./snippets/properties.json"
             },
             {
-                "language": "json",
-                "path": "./snippets/json.json"
-            },
-            {
-                "language": "jsonc",
+                "language": "json,jsonc",
                 "path": "./snippets/json.json"
             },
             {
@@ -90,10 +90,6 @@
             {
                 "command": "arkademy.get_unique_date",
                 "title": "Arkademy : Random Unique ID for XML"
-            },
-            {
-                "command": "arkademy.get_time_now",
-                "title": "Arkademy : Get Timestamp Now"
             }
         ],
         "keybindings": [
@@ -134,6 +130,16 @@
                 "key": "ctrl+shift+f",
                 "command": "workbench.action.findInFiles",
                 "when": "!explorerViewletVisible && !filesExplorerFocus && explorerResourceIsRoot && inputFocus"
+            },
+            {
+                "key": "ctrl+shift+f",
+                "command": "workbench.action.search.toggleQueryDetails",
+                "when": "inputBoxFocus && searchViewletVisible"
+            },
+            {
+                "key": "ctrl+shift+f",
+                "command": "workbench.action.replaceInFiles",
+                "when": "inputBoxFocus && searchViewletVisible"
             },
             {
                 "key": "ctrl+v",
@@ -229,7 +235,12 @@
                 "command": "workbench.action.terminal.focus"
             },
             {
-                "key": "ctrl+shift+h",
+                "key": "ctrl+shift+/",
+                "command": "workbench.action.focusActiveEditorGroup",
+                "when": "terminalFocus"
+            },
+            {
+                "key": "meta+h",
                 "command": "git.sync"
             },
             {
@@ -454,11 +465,6 @@
                 "command": "workbench.action.toggleFullScreen"
             },
             {
-                "key": "ctrl+f",
-                "command": "workbench.action.replaceInFiles",
-                "when": "inputBoxFocus && searchViewletVisible"
-            },
-            {
                 "key": "f4",
                 "command": "search.action.focusNextSearchResult",
                 "when": "searchViewletVisible && hasSearchResult"
@@ -522,11 +528,6 @@
                 "command": "gitlens.toggleZenMode"
             },
             {
-                "key": "alt+f",
-                "command": "workbench.action.search.toggleQueryDetails",
-                "when": "inputBoxFocus && searchViewletVisible"
-            },
-            {
                 "key": "alt+h",
                 "command": "gitlens.toggleFileBlame",
                 "when": "editorTextFocus && gitlens:activeFileStatus =~ /blameable/"
@@ -550,6 +551,11 @@
                 "key": "ctrl+;",
                 "command": "workbench.action.debug.restart",
                 "when": "inDebugMode"
+            },
+            {
+                "key": "ctrl+shift+;",
+                "command": "workbench.action.debug.selectandstart",
+                "when": "!inDebugMode"
             },
             {
                 "key": "ctrl+0",
@@ -604,10 +610,6 @@
                 "command": "workbench.action.closeEditorsInOtherGroups"
             },
             {
-                "key": "ctrl+alt+w",
-                "command": "workbench.action.closeAllEditors"
-            },
-            {
                 "key": "ctrl+alt+;",
                 "command": "flutter.hotRestart"
             },
@@ -650,7 +652,7 @@
                 "when": "editorTextFocus && !editorReadonly"
             },
             {
-                "key": "ctrl+i",
+                "key": "ctrl+k ctrl+shift+i",
                 "command": "editor.action.trimTrailingWhitespace",
                 "when": "editorTextFocus && !editorReadonly"
             },
@@ -667,11 +669,6 @@
             {
                 "key": "alt+v",
                 "command": "arkademy.get_unique_date",
-                "when": "editorTextFocus"
-            },
-            {
-                "key": "ctrl+j",
-                "command": "arkademy.get_time_now",
                 "when": "editorTextFocus"
             }
         ]
