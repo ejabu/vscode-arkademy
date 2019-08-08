@@ -320,10 +320,6 @@
                 "command": "workbench.action.files.save"
             },
             {
-                "key": "alt+m",
-                "command": "workbench.action.toggleMaximizedPanel"
-            },
-            {
                 "key": "ctrl+shift+b",
                 "command": "workbench.files.action.collapseExplorerFolders",
                 "when": "explorerViewletVisible && !searchViewletFocus "
@@ -349,6 +345,10 @@
             },
             {
                 "key": "ctrl+shift+m",
+                "command": "workbench.action.toggleEditorVisibility"
+            },
+            {
+                "key": "ctrl+alt+m",
                 "command": "workbench.action.togglePanelPosition"
             },
             {
@@ -388,12 +388,21 @@
                 "command": "workbench.action.toggleSidebarVisibility"
             },
             {
-                "key": "shift+alt+q",
+                "key": "meta+g",
+                "command": "outline.focus"
+            },
+            {
+                "key": "meta+q",
                 "command": "bookmarks.listFromAllFiles"
             },
             {
                 "key": "alt+q",
                 "command": "bookmarks.jumpToNext",
+                "when": "editorTextFocus"
+            },
+            {
+                "key": "shift+alt+q",
+                "command": "bookmarks.jumpToPrevious",
                 "when": "editorTextFocus"
             },
             {
@@ -554,7 +563,12 @@
             {
                 "key": "ctrl+;",
                 "command": "workbench.action.debug.restart",
-                "when": "inDebugMode"
+                "when": "inDebugMode && debugState == 'running'"
+            },
+            {
+                "key": "ctrl+alt+;",
+                "command": "flutter.hotRestart",
+                "when": "inDebugMode && debugState == 'running'"
             },
             {
                 "key": "ctrl+shift+;",
@@ -580,7 +594,7 @@
                 "command": "workbench.action.terminal.clear",
                 "when": " !inDebugRepl && terminalFocus"
             },
-            {
+            { // buka Variables pada Debug Window
                 "key": "ctrl+shift+,",
                 "command": "workbench.debug.action.focusVariablesView"
             },
@@ -591,6 +605,17 @@
             {
                 "key": "ctrl+shift+.",
                 "command": "workbench.action.openSettingsJson"
+            },
+            {
+                "key": "alt+.",
+                "command": "workbench.action.openFolderSettings",
+                "when": "activeEditor != 'workbench.editor.settings2'"
+            },
+            {
+                "key": "alt+.",
+                "command": "settings.switchToJSON",
+                "when": "activeEditor == 'workbench.editor.settings2'"
+
             },
             {
                 "key": "alt+\\",
@@ -612,15 +637,6 @@
             {
                 "key": "ctrl+q",
                 "command": "workbench.action.closeEditorsInOtherGroups"
-            },
-            {
-                "key": "ctrl+alt+;",
-                "command": "flutter.hotRestart"
-            },
-            {
-                "key": "alt+0",
-                "command": "workbench.action.debug.stop",
-                "when": "inDebugMode"
             },
             {
                 "key": "meta+t",
