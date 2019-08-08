@@ -594,7 +594,7 @@
                 "command": "workbench.action.terminal.clear",
                 "when": " !inDebugRepl && terminalFocus"
             },
-            { // buka Variables pada Debug Window
+            {
                 "key": "ctrl+shift+,",
                 "command": "workbench.debug.action.focusVariablesView"
             },
