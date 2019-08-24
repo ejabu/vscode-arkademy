@@ -27,7 +27,7 @@
         "**/coverage": true,
         "**/*.po": true
     },
-    "python.linting.enabled": true,
+    "python.linting.enabled": false,
     "python.linting.pylintArgs": [
         "--disable=E1003",
         "--disable=E1101",
@@ -90,8 +90,8 @@
     "editor.suggestFontSize": 13,
     "editor.hover.enabled": true,
     "editor.hover.sticky": true,
-    "editor.quickSuggestions": false,
-    "editor.quickSuggestionsDelay": 0,
+    "editor.quickSuggestions": true,
+    "editor.quickSuggestionsDelay": 500,
     "editor.snippetSuggestions": "top",
     "editor.suggestOnTriggerCharacters": true,
     "editor.wordBasedSuggestions": true,
