@@ -37,7 +37,7 @@
 		]
 	},
 	"New - Class 1": {
-		"prefix": "New - Class / Model (Standard)",
+		"prefix": "New - View (Tree, Form, Action, Menu) (Standard)",
 		"body": [
 			"$0<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
 			"<odoo>",
@@ -105,7 +105,7 @@
 		]
 	},
 	"New - Class 2": {
-		"prefix": "New - Class / Model (Training)",
+		"prefix": "New - View (Tree, Form, Action, Menu) (Training)",
 		"body": [
 			"$0<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
 			"<odoo>",
@@ -448,7 +448,7 @@
 			"$0<menuitem",
 			"	id=\"${1:nama_menu}_menu\"",
 			"	name=\"${2:label}\"",
-			"	parent=\"${3:nama_parent_menu}\"", 
+			"	parent=\"${3:nama_parent_menu}\"",
 			"/>"
 		],
 	},
