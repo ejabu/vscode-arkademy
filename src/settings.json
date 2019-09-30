@@ -31,6 +31,7 @@
     "python.linting.pylintArgs": [
         "--disable=E1003",
         "--disable=E1101",
+        "--disable=E1110",
         "--disable=E1121",
         "--disable=E0401",
         "--disable=E0203",
@@ -90,8 +91,6 @@
     "editor.suggestFontSize": 13,
     "editor.hover.enabled": true,
     "editor.hover.sticky": true,
-    "editor.quickSuggestions": true,
-    "editor.quickSuggestionsDelay": 500,
     "editor.snippetSuggestions": "top",
     "editor.suggestOnTriggerCharacters": true,
     "editor.wordBasedSuggestions": true,
@@ -145,9 +144,9 @@
     },
     "emmet.showExpandedAbbreviation": "never",
     "emmet.showAbbreviationSuggestions": false,
-    "workbench.colorTheme": "Arkademy",
+    "workbench.colorTheme": "Arkademy Dark II",
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
     "git.alwaysShowStagedChangesResourceGroup": true,
-    "zenMode.fullScreen": false,
+    "zenMode.fullScreen": false
 }
