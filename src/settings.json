@@ -31,7 +31,7 @@
     "python.linting.pylintArgs": [
         "--disable=E1003",
         "--disable=E1101",
-        "--disable=E1110",
+        "--disable=E0110",
         "--disable=E1121",
         "--disable=E0401",
         "--disable=E0203",

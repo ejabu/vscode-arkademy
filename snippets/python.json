@@ -1,13 +1,13 @@
 {
-  "from import":{
+  "from import": {
     "prefix": "from import",
     "body": "from . import ${1:nama_folder / nama_file(tanpa .py)}"
   },
-  "import UserError":{
+  "import UserError": {
     "prefix": "import UserError",
     "body": "from odoo.exceptions import UserError"
   },
-  "loop example":{
+  "loop example": {
     "prefix": "loop example",
     "body": [
       "sale_docs = []",
@@ -17,7 +17,7 @@
       "\t})"
     ]
   },
-  "loop + sum example":{
+  "loop + sum example": {
     "prefix": "loop + sum example",
     "body": [
       "temp_amount = 0",
@@ -25,7 +25,7 @@
       "\ttemp_amount += sale_doc.amount_total",
     ]
   },
-  "loop + append example":{
+  "loop + append example": {
     "prefix": "loop + append example",
     "body": [
       "temp_array = []",
@@ -36,7 +36,7 @@
       "\ttemp_array.append(value)",
     ]
   },
-  "access / modify Dictionary":{
+  "access / modify Dictionary": {
     "prefix": "access / modify Dictionary",
     "body": [
       "value = {",
@@ -48,7 +48,7 @@
       "value['subtotal'] = subtotal",
     ]
   },
-  "New Model":{
+  "New Model": {
     "prefix": "New Model",
     "body": [
       "$0from odoo import models, fields, api",
@@ -59,7 +59,7 @@
       "	name = fields.Char(string='${3:Label dari Field}')"
     ]
   },
-  "New Model (Lengkap)":{
+  "New Model (Lengkap)": {
     "prefix": "New Model (Lengkap)",
     "body": [
       "$0from odoo import models, fields, api, _",
@@ -386,7 +386,7 @@
       "$0nama_baru = self.env['ir.sequence'].next_by_code('${1:nama.model}.sequence')",
     ]
   },
-  "def query to PSQL":{
+  "def query to PSQL": {
     "prefix": "def query to PSQL",
     "body": [
       "@api.multi",
@@ -481,7 +481,6 @@
       "			}",
       "		}",
       "$0",
-
     ]
   },
   "Relation Domain Changed": {
@@ -501,10 +500,30 @@
     ]
   },
   "QQ": {
-    "prefix": "qqq",
+    "prefix": "qq Flag Here",
     "description": "Untuk menambahkan baris ketika debugging ",
     "body": [
-      "qqq = 3",
+      "print(\"${1:Flag Here}\")"
+    ]
+  },
+  "lll": {
+    "prefix": "lll",
+    "body": [
+      "print(f\"$2{${1:nama_var}}\")",
+    ]
+  },
+  "llp": {
+    "prefix": "llp",
+    "body": [
+      "print(f\"$2{${1:nama_var}}\")",
+      "$0"
+    ]
+  },
+  "fff": {
+    "prefix": "fff",
+    "body": [
+      "print(\"${1:Flag Here}\")",
+      "$0"
     ]
   },
   "required di Field": {
@@ -537,7 +556,6 @@
       "temp_array = []",
       "for doc in docs:",
       "	temp_array.append(doc.amount_total)"
-
     ]
   },
   "Odoo Recordset Api - Sorted": {
@@ -673,5 +691,5 @@
       "		# )",
       "",
     ]
-  },
+  }
 }
