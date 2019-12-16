@@ -389,7 +389,6 @@
   "def query to PSQL": {
     "prefix": "def query to PSQL",
     "body": [
-      "@api.multi",
       "def query_all_name_sale_voucher(self):",
       "	self._cr.execute(\"SELECT name FROM sale_voucher\")",
       "	query_rows = self._cr.dictfetchall()",
@@ -422,7 +421,6 @@
   "def button (Odoo Class Function)": {
     "prefix": "def button (Odoo Class Function)",
     "body": [
-      "@api.multi",
       "def set_open(self):",
       "	for doc in self:",
       "		doc.state = 'open'",
@@ -443,7 +441,6 @@
     "body": [
       "${1:amount_total} = fields.Float(compute='${2:_compute_total}', string='Total', store=False)",
       "",
-      "@api.multi",
       "@api.depends('line_ids')",
       "def ${2:_compute_total}(self):",
       "	for order_doc in self:",
@@ -503,26 +500,26 @@
     "prefix": "qq Flag Here",
     "description": "Untuk menambahkan baris ketika debugging ",
     "body": [
-      "print(\"${1:Flag Here}\")"
+      "print('${1:Flag Here}')"
     ]
   },
   "lll": {
     "prefix": "lll",
     "body": [
-      "print(f\"$2{${1:nama_var}}\")",
+      "print(f'$2{${1:nama_var}}')"
     ]
   },
   "llp": {
     "prefix": "llp",
     "body": [
-      "print(f\"$2{${1:nama_var}}\")",
+      "print(f'$2{${1:nama_var}}')",
       "$0"
     ]
   },
   "fff": {
     "prefix": "fff",
     "body": [
-      "print(\"${1:Flag Here}\")",
+      "print('${1:Flag Here}')",
       "$0"
     ]
   },
@@ -630,7 +627,6 @@
     "prefix": "def liat wizard (Basic)",
     "description": "Popup dengan Form / Tree View tidak ditentukan",
     "body": [
-      "@api.multi",
       "def buka_wizard(self):",
       "	$0return {",
       "		'type': 'ir.actions.act_window',",
@@ -647,7 +643,6 @@
     "prefix": "def liat wizard (Complex)",
     "description": "Popup dengan Form / Tree View yang ditentukan",
     "body": [
-      "@api.multi",
       "def buka_wizard_exact_tree_form(self):",
       "	action = self.env.ref('account.view_account_supplier_payment_tree')",
       "	result = action.read()[0]",
