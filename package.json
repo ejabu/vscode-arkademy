@@ -30,6 +30,7 @@
         "onCommand:toggle.editor.renderIndentGuides"
     ],
     "extensionDependencies": [
+        "huacnlee.theme-macos-classic",
         "mechatroner.rainbow-csv",
         "ms-python.python",
         "dotjoshjohnson.xml"

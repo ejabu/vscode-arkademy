@@ -2,7 +2,11 @@
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 500,
     "emmet.showExpandedAbbreviation": "never",
+	"breadcrumbs.enabled": false,
     "python.linting.enabled": false,
+	"workbench.iconTheme": "macos-classic-icons",
+	"workbench.editor.tabSizing": "shrink",
+	"workbench.editor.showIcons": false,
     "python.linting.pylintArgs": [
         "--disable=E1003",
         "--disable=E1101",
