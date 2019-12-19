@@ -1,7 +1,7 @@
 'use strict';
 import * as vscode from 'vscode';
 // @ts-ignore
-import * as config from './settings.json';
+import * as config from './config.json';
 
 function timestamp(): string{
     return (new Date()).valueOf().toString();
