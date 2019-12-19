@@ -52,5 +52,6 @@
     "files.exclude": {
         "**/__pycache__": true,
         "**/*.pyc": true
-    }
+    },
+	"explorer.compactFolders": false,
 }
