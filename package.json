@@ -8,7 +8,7 @@
         "url": "https://github.com/ejabu/arkademy-vsce.git"
     },
     "publisher": "arkademy",
-    "version": "0.88.0",
+    "version": "0.89.0",
     "enableProposedApi": false,
     "engines": {
         "vscode": "^1.25.0"
@@ -25,7 +25,7 @@
         "Other"
     ],
     "activationEvents": [
-		"*",
+        "*",
         "onCommand:arkademy.setup_vscode",
         "onCommand:arkademy.get_unique_date",
         "onCommand:toggle.editor.renderIndentGuides"
@@ -39,22 +39,22 @@
     "main": "./out/extension.js",
     "contributes": {
         "viewsContainers": {
-			"activitybar": [
-				{
-					"id": "arkademyWindow",
-					"title": "Arkana",
-					"icon": "images/arkana-dark.svg"
-				}
-			]
-		},
-		"views": {
-			"arkademyWindow": [
-				{
-					"id": "testView",
-					"name": "Basic Technical Training"
+            "activitybar": [
+                {
+                    "id": "arkademyWindow",
+                    "title": "Arkana",
+                    "icon": "images/arkana-dark.svg"
                 }
-			]
-		},
+            ]
+        },
+        "views": {
+            "arkademyWindow": [
+                {
+                    "id": "testView",
+                    "name": "Basic Technical Training"
+                }
+            ]
+        },
         "snippets": [
             {
                 "path": "./snippets/global.code-snippets"
