@@ -25,6 +25,7 @@
         "Other"
     ],
     "activationEvents": [
+		"*",
         "onCommand:arkademy.setup_vscode",
         "onCommand:arkademy.get_unique_date",
         "onCommand:toggle.editor.renderIndentGuides"
@@ -37,6 +38,23 @@
     ],
     "main": "./out/extension.js",
     "contributes": {
+        "viewsContainers": {
+			"activitybar": [
+				{
+					"id": "arkademyWindow",
+					"title": "Arkana",
+					"icon": "images/arkana-dark.svg"
+				}
+			]
+		},
+		"views": {
+			"arkademyWindow": [
+				{
+					"id": "testView",
+					"name": "Basic Technical Training"
+                }
+			]
+		},
         "snippets": [
             {
                 "path": "./snippets/global.code-snippets"
@@ -693,12 +711,29 @@
             }
         ]
     },
+    "menus": {
+        "view/title": [
+            {
+                "command": "arkademy.setup_vscode",
+                "when": "view == arkademyWindow"
+            }
+        ]
+    },
     "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "scripts2": {
+        "build": "webpack --mode development",
+        "watch": "webpack --watch --mode development --info-verbosity verbose",
+        "vscode:prepublish": "webpack --mode production",
+        "webpack": "webpack --mode development",
+        "webpack-dev": "webpack --mode development --watch",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
     },
     "devDependencies": {
         "typescript": "^3.1.4",

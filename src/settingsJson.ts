@@ -1,4 +1,5 @@
-{
+export var config = {
+    "workbench.tree.indent": 15,
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 500,
     "emmet.showExpandedAbbreviation": "never",
@@ -55,3 +56,4 @@
     },
 	"explorer.compactFolders": false
 }
+
