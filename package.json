@@ -99,6 +99,11 @@
                 "label": "Arkademy Light",
                 "uiTheme": "vs",
                 "path": "./themes/light1.json"
+            },
+            {
+                "label": "Arkademy Light II",
+                "uiTheme": "vs",
+                "path": "./themes/light2.json"
             }
         ],
         "commands": [
