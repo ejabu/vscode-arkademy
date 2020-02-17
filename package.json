@@ -190,10 +190,6 @@
                 "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
             },
             {
-                "key": "meta+e",
-                "command": "workbench.view.explorer"
-            },
-            {
                 "key": "meta+j",
                 "command": "workbench.action.toggleZenMode"
             },
@@ -214,16 +210,6 @@
                 "key": "ctrl+alt+d",
                 "command": "editor.action.selectHighlights",
                 "when": "editorFocus"
-            },
-            {
-                "key": "ctrl+pageup",
-                "command": "workbench.action.terminal.scrollToPreviousCommand",
-                "when": "terminalFocus"
-            },
-            {
-                "key": "ctrl+pagedown",
-                "command": "workbench.action.terminal.scrollToNextCommand",
-                "when": "terminalFocus"
             },
             {
                 "key": "f9 f10",
@@ -257,15 +243,6 @@
             {
                 "key": "ctrl+shift+l",
                 "command": "workbench.action.editor.changeLanguageMode"
-            },
-            {
-                "key": "ctrl+shift+/",
-                "command": "workbench.action.terminal.focus"
-            },
-            {
-                "key": "ctrl+shift+/",
-                "command": "workbench.action.focusActiveEditorGroup",
-                "when": "terminalFocus"
             },
             {
                 "key": "meta+h",
@@ -362,10 +339,6 @@
                 "key": "ctrl+h",
                 "command": "workbench.action.tasks.runTask",
                 "args": "git log"
-            },
-            {
-                "key": "ctrl+shift+k",
-                "command": "workbench.action.terminal.kill"
             },
             {
                 "key": "ctrl+shift+m",
@@ -570,6 +543,36 @@
                 "when": "editorTextFocus && gitlens:activeFileStatus =~ /blameable/"
             },
             {
+                "key": "alt+,",
+                "command": "workbench.action.terminal.toggleTerminal",
+                "when": "!terminalFocus"
+            },
+            {
+                "key": "alt+,",
+                "command": "workbench.action.terminal.clear",
+                "when": "terminalFocus && !inDebugRepl"
+            },
+            {
+                "key": "ctrl+pageup",
+                "command": "workbench.action.terminal.scrollToPreviousCommand",
+                "when": "terminalFocus"
+            },
+            {
+                "key": "ctrl+pagedown",
+                "command": "workbench.action.terminal.scrollToNextCommand",
+                "when": "terminalFocus"
+            },
+            {
+                "key": "ctrl+,",
+                "command": "workbench.debug.action.toggleRepl",
+                "when": "!inDebugRepl && !terminalFocus"
+            },
+            {
+                "key": "ctrl+,",
+                "command": "workbench.debug.panel.action.clearReplAction",
+                "when": "inDebugRepl && !terminalFocus"
+            },
+            {
                 "key": "ctrl+'",
                 "command": "workbench.action.debug.stepOver",
                 "when": "inDebugMode"
@@ -602,21 +605,6 @@
             {
                 "key": "ctrl+0",
                 "command": "workbench.action.debug.stop"
-            },
-            {
-                "key": "ctrl+,",
-                "command": "workbench.debug.action.toggleRepl",
-                "when": "!inDebugRepl && !terminalFocus"
-            },
-            {
-                "key": "ctrl+,",
-                "command": "workbench.debug.panel.action.clearReplAction",
-                "when": "inDebugRepl && !terminalFocus"
-            },
-            {
-                "key": "ctrl+,",
-                "command": "workbench.action.terminal.clear",
-                "when": " !inDebugRepl && terminalFocus"
             },
             {
                 "key": "ctrl+shift+,",
