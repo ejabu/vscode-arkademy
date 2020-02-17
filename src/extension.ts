@@ -19,11 +19,15 @@ export function activate(context: vscode.ExtensionContext) {
     const taskTreeDataProvider = new TaskTreeDataProvider(context);
 
     vscode.debug.onDidChangeActiveDebugSession((e) => {
-        if (e !== undefined) {
+        if (e == undefined) {
             vscode.window.setStatusBarMessage(
-                "$(debug-start) Restarting ...  $(debug-step-over)",
+                "$(debug-stop) Debugging is Stopped ...",
+                2000)
+        }
+        else {
+            vscode.window.setStatusBarMessage(
+                "$(debug-start) Debugging is Started ...  $(debug-step-over)",
                 6000)
-
         }
     })
 	vscode.window.registerTreeDataProvider('testView', taskTreeDataProvider);
