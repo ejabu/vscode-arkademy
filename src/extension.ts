@@ -18,8 +18,16 @@ export function activate(context: vscode.ExtensionContext) {
 
     const taskTreeDataProvider = new TaskTreeDataProvider(context);
 
+    vscode.debug.onDidChangeActiveDebugSession((e) => {
+        if (e !== undefined) {
+            vscode.window.setStatusBarMessage(
+                "$(debug-start) Restarting ...  $(debug-step-over)",
+                6000)
+
+        }
+    })
 	vscode.window.registerTreeDataProvider('testView', taskTreeDataProvider);
-    
+
     context.subscriptions.push(vscode.commands.registerCommand('toggle.editor.renderIndentGuides', async () => {
         var currentState = await vscode.workspace.getConfiguration('editor')
         await vscode.workspace.getConfiguration().update('editor.renderIndentGuides', !currentState.renderIndentGuides, vscode.ConfigurationTarget.Global);
