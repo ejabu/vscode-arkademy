@@ -450,7 +450,9 @@
             },
             {
                 "key": "ctrl+t",
-                "command": "workbench.action.editor.nextChange"
+                "command": "workbench.action.editor.nextChange",
+                "when": "!terminalFocus && activePanel == 'workbench.panel.terminal'"
+
             },
             {
                 "key": "ctrl+alt+t",
@@ -543,7 +545,7 @@
             {
                 "key": "ctrl+t",
                 "command": "workbench.action.compareEditor.nextChange",
-                "when": "textCompareEditorVisible && isInDiffEditor"
+                "when": "textCompareEditorVisible && isInDiffEditor && !terminalFocus && activePanel == 'workbench.panel.terminal'"
             },
             {
                 "key": "ctrl+alt+t",
@@ -634,33 +636,38 @@
             },
             {
                 "key": "alt+,",
-                "command": "workbench.action.terminal.toggleTerminal",
+                "command": "workbench.action.terminal.focus",
                 "when": "!terminalFocus"
             },
             {
                 "key": "alt+,",
                 "command": "workbench.action.terminal.clear",
-                "when": "terminalFocus && !inDebugRepl"
+                "when": "terminalFocus && terminalIsOpen && activePanel == 'workbench.panel.terminal'"
+            },
+            {
+                "key": "ctrl+t",
+                "command": "workbench.action.terminal.split",
+                "when": "terminalFocus && terminalIsOpen && activePanel == 'workbench.panel.terminal'"
             },
             {
                 "key": "ctrl+pageup",
                 "command": "workbench.action.terminal.scrollToPreviousCommand",
-                "when": "terminalFocus"
+                "when": "terminalFocus && terminalIsOpen && activePanel == 'workbench.panel.terminal'"
             },
             {
                 "key": "ctrl+pagedown",
                 "command": "workbench.action.terminal.scrollToNextCommand",
-                "when": "terminalFocus"
+                "when": "terminalFocus && terminalIsOpen && activePanel == 'workbench.panel.terminal'"
             },
             {
                 "key": "ctrl+,",
                 "command": "workbench.debug.action.toggleRepl",
-                "when": "!inDebugRepl && !terminalFocus"
+                "when": "!inDebugRepl"
             },
             {
                 "key": "ctrl+,",
                 "command": "workbench.debug.panel.action.clearReplAction",
-                "when": "inDebugRepl && !terminalFocus"
+                "when": "inDebugRepl"
             },
             {
                 "key": "ctrl+'",
