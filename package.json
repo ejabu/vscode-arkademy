@@ -299,7 +299,7 @@
             },
             {
                 "key": "ctrl+shift+w",
-                "command": "workbench.action.closeEditorsToTheRight"
+                "command": "workbench.action.closeOtherEditors"
             },
             {
                 "key": "alt+f",
@@ -567,6 +567,10 @@
                 "when": "filesExplorerFocus && !editorFocus"
             },
             {
+                "key": "meta+r",
+                "command": "workbench.action.reloadWindow"
+            },
+            {
                 "key": "meta+k",
                 "command": "workbench.action.toggleFullScreen"
             },
@@ -765,6 +769,11 @@
                 "key": "alt+i",
                 "command": "editor.action.formatDocument",
                 "when": "editorTextFocus && !editorReadonly"
+            },
+            {
+                "key": "ctrl+shift+i",
+                "command": "editor.action.formatDocument",
+                "when": "editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
             },
             {
                 "key": "ctrl+k ctrl+shift+i",
