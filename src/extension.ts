@@ -11,23 +11,71 @@ function timestamp(): string {
 function unique5(): string {
     return Math.random().toString(10).substring(6, 11);
 }
+
+function matchLineNumber(m) {
+
+    if (!m) {
+        return -1
+    }
+    let lines = m[0].split("\n")
+    if (lines.length > 1) {
+        return lines.length
+    }
+    return 1
+}
 class PsqlDocumentSymbolProvider implements vscode.DocumentSymbolProvider {
     public provideDocumentSymbols(document: vscode.TextDocument,
-            token: vscode.CancellationToken): Thenable<vscode.SymbolInformation[]> {
+        token: vscode.CancellationToken): Thenable<vscode.SymbolInformation[]> {
         return new Promise((resolve, reject) => {
+            var aliasName = [];
+            var aliasPosition = [];
             var symbols = [];
+            var barisTerakhir = document.lineCount;
 
+            for (var i = 0; i < barisTerakhir; i++) {
+                let rangeToRead = new vscode.Range(i, 0, barisTerakhir + 1, 0)
+                let content = document.getText(rangeToRead)
+                let matchContent = content.match(/(( AS )\((?:\(.*\)|[^\(])*\))/i)
+                // let matchContent = content.match(/(AS )\(\s*([^]+)\)/)
+                if (matchContent) {
+                    let barisContent = matchLineNumber(matchContent)
+                    aliasPosition.push([i, (i + barisContent - 1)])
+                    aliasName.push(content.match(/\w+(?=\s+AS \()/i)[0])
+                    i += (barisContent - 1)
+                }
+                // else if (content.match(/(AS )\(([^]+)\)/)) {
+                else if (content.match(/( AS )\(([^]+)\)\s(?=SELECT)/i)) {
+                    let matchContent = content.match(/( AS )\(([^]+)\)\s(?=SELECT)/i)
+                    let barisContent = matchLineNumber(matchContent)
+                    aliasPosition.push([i, (i + barisContent - 1)])
+                    aliasName.push(content.match(/\w+(?=\s+AS \()/i)[0])
+                    i += (barisContent - 1)
+                    if (content.match(/\w+(?=\s+AS \()/i)[0] == 'target'){
+                        console.log("ASd")
+                    }
+                    // untuk terakhir
+                    aliasPosition.push([i += 2, barisTerakhir + 1])
+                    aliasName.push("End Product")
+                    i = barisTerakhir
+                }
+                else {
+                    aliasPosition.push([i += 2, barisTerakhir + 1])
+                    aliasName.push("End Product")
+                    i = barisTerakhir
+                }
+            }
+
+            for (let i = 0; i < aliasName.length; i++) {
+                let tes = new vscode.Range(aliasPosition[i][0], 0, aliasPosition[i][1], 0)
+                symbols.push({
+                    name: aliasName[i],
+                    kind: vscode.SymbolKind.Function,
+                    location: new vscode.Location(document.uri, tes)
+                })
+            }
             for (var i = 0; i < document.lineCount; i++) {
                 var line = document.lineAt(i);
-                if (line.text.match(/\w+(?=\s+AS \()/)) {
-                    let hasil = line.text.match(/\w+(?=\s+AS \()/)
-                    symbols.push({
-                        name: hasil[0],
-                        kind: vscode.SymbolKind.Field,
-                        location: new vscode.Location(document.uri, line.range)
-                    })
-                }
-                else if (line.text.match(/{[^\]\[\r\n]*\}/)) {
+                if (line.text.match(/{[^\]\[\r\n]*\}/)) {
                     let hasil = line.text.match(/{[^\]\[\r\n]*\}/)
                     symbols.push({
                         name: hasil[0],
@@ -49,7 +97,7 @@ export function activate(context: vscode.ExtensionContext) {
     const taskTreeDataProvider = new TaskTreeDataProvider(context);
 
     context.subscriptions.push(vscode.languages.registerDocumentSymbolProvider(
-        {language: "sql"}, new PsqlDocumentSymbolProvider()
+        { language: "sql" }, new PsqlDocumentSymbolProvider()
     ));
 
     vscode.debug.onDidChangeActiveDebugSession((e) => {
