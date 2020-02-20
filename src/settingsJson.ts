@@ -7,6 +7,7 @@ export var config = {
     "workbench.tree.indent": 15,
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 500,
+    "breadcrumbs.enabled": false,
 	"breadcrumbs.filePath": "off",
 	"breadcrumbs.showModules": false,
 	"breadcrumbs.showPackages": false,

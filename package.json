@@ -110,8 +110,28 @@
                 "category": "Arkademy"
             },
             {
-                "command": "toggle.editor.renderIndentGuides",
-                "title": "Toggle Render Indent Guides",
+                "command": "arkademy.toggleBreadcumb",
+                "title": "Hide/Show Breadcrumb",
+                "category": "Arkademy"
+            },
+            {
+                "command": "arkademy.toggleEditorTabs",
+                "title": "Hide/Show Editor Tabs",
+                "category": "Arkademy"
+            },
+            {
+                "command": "arkademy.toggleIndentGuides",
+                "title": "Hide/Show Render Indent Guides",
+                "category": "Arkademy"
+            },
+            {
+                "command": "arkademy.toggleIndentToSpace",
+                "title": "Indent to Space",
+                "category": "Arkademy"
+            },
+            {
+                "command": "arkademy.toggleIndentToTab",
+                "title": "Indent to Tab",
                 "category": "Arkademy"
             },
             {
@@ -124,6 +144,16 @@
                 }
             },
             {
+                "command": "arkademy.openSettingsJson",
+                "title": "Open Settings JSON",
+                "category": "Arkademy"
+            },
+            {
+                "command": "arkademy.openSettingsUi",
+                "title": "Open Settings (UI)",
+                "category": "Arkademy"
+            },
+            {
                 "command": "arkademy.get_unique_date",
                 "title": "Random Unique ID for XML",
                 "category": "Arkademy"
@@ -134,6 +164,40 @@
                 {
                     "command": "arkademy.openWorkspaceSettings",
                     "group": "3_open"
+                },
+                {
+                    "command": "arkademy.toggleIndentGuides",
+                    "group": "4_indent"
+                },
+                {
+                    "command": "arkademy.toggleIndentToSpace",
+                    "group": "4_indent"
+                },
+                {
+                    "command": "arkademy.toggleIndentToTab",
+                    "group": "4_indent"
+                },
+                {
+                    "command": "arkademy.setup_vscode",
+                    "group": "zz_arkademy"
+                },
+                {
+                    "command": "arkademy.openSettingsUi",
+                    "group": "zz_arkademy"
+                },
+                {
+                    "command": "arkademy.openSettingsJson",
+                    "group": "zz_arkademy"
+                }
+            ],
+            "editor/title/context": [
+                {
+                    "command": "arkademy.toggleBreadcumb",
+                    "group": "1_aa"
+                },
+                {
+                    "command": "arkademy.toggleEditorTabs",
+                    "group": "1_aa"
                 }
             ]
         },
@@ -644,23 +708,6 @@
                 "key": "alt+.",
                 "command": "settings.switchToJSON",
                 "when": "activeEditor == 'workbench.editor.settings2'"
-            },
-            {
-                "key": "alt+\\",
-                "command": "editor.action.toggleRenderWhitespace"
-            },
-            {
-                "key": "alt+shift+\\",
-                "command": "toggle.editor.renderIndentGuides",
-                "when": "editorTextFocus"
-            },
-            {
-                "key": "alt+[",
-                "command": "editor.action.indentationToSpaces"
-            },
-            {
-                "key": "alt+]",
-                "command": "editor.action.indentationToTabs"
             },
             {
                 "key": "ctrl+q",
