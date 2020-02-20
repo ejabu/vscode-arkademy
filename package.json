@@ -8,7 +8,7 @@
         "url": "https://github.com/ejabu/arkademy-vsce.git"
     },
     "publisher": "arkademy",
-    "version": "0.94.0",
+    "version": "0.95.0",
     "enableProposedApi": false,
     "engines": {
         "vscode": "^1.25.0"
@@ -118,7 +118,7 @@
                 "command": "arkademy.setup_vscode",
                 "title": "Setup Vscode",
                 "category": "Arkademy",
-                "icon":{
+                "icon": {
                     "light": "images/arkana-dark.svg",
                     "dark": "images/arkana-dark.svg"
                 }
