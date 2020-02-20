@@ -470,6 +470,15 @@
                 "command": "outline.focus"
             },
             {
+                "key": "alt+o",
+                "command": "workbench.action.gotoSymbol"
+            },
+            {
+                "key": "alt+o",
+                "command": "workbench.action.closeQuickOpen",
+                "when": "inQuickOpen"
+            },
+            {
                 "key": "meta+q",
                 "command": "bookmarks.listFromAllFiles"
             },
@@ -542,7 +551,7 @@
                 "when": "textCompareEditorVisible && isInDiffEditor"
             },
             {
-                "key": "alt+o",
+                "key": "alt+\\",
                 "command": "editor.action.quickFix",
                 "when": "editorTextFocus"
             },

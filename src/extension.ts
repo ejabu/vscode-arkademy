@@ -11,12 +11,46 @@ function timestamp(): string {
 function unique5(): string {
     return Math.random().toString(10).substring(6, 11);
 }
+class PsqlDocumentSymbolProvider implements vscode.DocumentSymbolProvider {
+    public provideDocumentSymbols(document: vscode.TextDocument,
+            token: vscode.CancellationToken): Thenable<vscode.SymbolInformation[]> {
+        return new Promise((resolve, reject) => {
+            var symbols = [];
+
+            for (var i = 0; i < document.lineCount; i++) {
+                var line = document.lineAt(i);
+                if (line.text.match(/\w+(?=\s+AS \()/)) {
+                    let hasil = line.text.match(/\w+(?=\s+AS \()/)
+                    symbols.push({
+                        name: hasil[0],
+                        kind: vscode.SymbolKind.Field,
+                        location: new vscode.Location(document.uri, line.range)
+                    })
+                }
+                else if (line.text.match(/{[^\]\[\r\n]*\}/)) {
+                    let hasil = line.text.match(/{[^\]\[\r\n]*\}/)
+                    symbols.push({
+                        name: hasil[0],
+                        kind: vscode.SymbolKind.Key,
+                        location: new vscode.Location(document.uri, line.range)
+                    })
+                }
+            }
+
+            resolve(symbols);
+        });
+    }
+}
 export function activate(context: vscode.ExtensionContext) {
 
     // // Test View
     // new TaskTreeDataProvider(context);
 
     const taskTreeDataProvider = new TaskTreeDataProvider(context);
+
+    context.subscriptions.push(vscode.languages.registerDocumentSymbolProvider(
+        {language: "sql"}, new PsqlDocumentSymbolProvider()
+    ));
 
     vscode.debug.onDidChangeActiveDebugSession((e) => {
         if (e == undefined) {
