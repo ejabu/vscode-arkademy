@@ -8,7 +8,7 @@
         "url": "https://github.com/ejabu/arkademy-vsce.git"
     },
     "publisher": "arkademy",
-    "version": "0.97.0",
+    "version": "0.98.0",
     "enableProposedApi": false,
     "engines": {
         "vscode": "^1.25.0"
@@ -452,7 +452,6 @@
                 "key": "ctrl+t",
                 "command": "workbench.action.editor.nextChange",
                 "when": "!terminalFocus && activePanel == 'workbench.panel.terminal'"
-
             },
             {
                 "key": "ctrl+alt+t",
