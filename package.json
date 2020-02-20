@@ -8,7 +8,7 @@
         "url": "https://github.com/ejabu/arkademy-vsce.git"
     },
     "publisher": "arkademy",
-    "version": "0.101.0",
+    "version": "0.102.0",
     "enableProposedApi": false,
     "engines": {
         "vscode": "^1.25.0"
@@ -550,7 +550,6 @@
                 "key": "ctrl+shift+,",
                 "command": "workbench.debug.action.focusRepl"
             },
-
             {
                 "key": "alt+\\",
                 "command": "editor.action.quickFix",
@@ -731,7 +730,7 @@
             {
                 "key": "alt+.",
                 "command": "settings.switchToJSON",
-                "when":"activeEditor == 'workbench.editor.settings2'"
+                "when": "activeEditor == 'workbench.editor.settings2'"
             },
             {
                 "key": "ctrl+q",
