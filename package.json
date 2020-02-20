@@ -562,6 +562,11 @@
                 "when": "isInDiffEditor"
             },
             {
+                "key": "meta+w",
+                "command": "revealFileInOS",
+                "when": "filesExplorerFocus && !editorFocus"
+            },
+            {
                 "key": "meta+k",
                 "command": "workbench.action.toggleFullScreen"
             },
