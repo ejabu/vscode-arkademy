@@ -450,8 +450,17 @@
             },
             {
                 "key": "ctrl+t",
-                "command": "workbench.action.editor.nextChange",
-                "when": "!terminalFocus && activePanel == 'workbench.panel.terminal'"
+                "command": "workbench.action.compareEditor.nextChange",
+                "when": "textCompareEditorVisible && isInDiffEditor"
+            },
+            {
+                "key": "ctrl+alt+t",
+                "command": "workbench.action.compareEditor.previousChange",
+                "when": "textCompareEditorVisible && isInDiffEditor"
+            },
+            {
+                "key": "ctrl+t",
+                "command": "workbench.action.editor.nextChange"
             },
             {
                 "key": "ctrl+alt+t",
@@ -541,16 +550,7 @@
                 "key": "ctrl+shift+,",
                 "command": "workbench.debug.action.focusRepl"
             },
-            {
-                "key": "ctrl+t",
-                "command": "workbench.action.compareEditor.nextChange",
-                "when": "textCompareEditorVisible && isInDiffEditor && !terminalFocus && activePanel == 'workbench.panel.terminal'"
-            },
-            {
-                "key": "ctrl+alt+t",
-                "command": "workbench.action.compareEditor.previousChange",
-                "when": "textCompareEditorVisible && isInDiffEditor"
-            },
+
             {
                 "key": "alt+\\",
                 "command": "editor.action.quickFix",
@@ -731,7 +731,7 @@
             {
                 "key": "alt+.",
                 "command": "settings.switchToJSON",
-                "when": "activeEditor == 'workbench.editor.settings2'"
+                "when":"activeEditor == 'workbench.editor.settings2'"
             },
             {
                 "key": "ctrl+q",
