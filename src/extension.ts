@@ -36,6 +36,11 @@ export function activate(context: vscode.ExtensionContext) {
         var currentState = await vscode.workspace.getConfiguration('editor')
         await vscode.workspace.getConfiguration().update('editor.renderIndentGuides', !currentState.renderIndentGuides, vscode.ConfigurationTarget.Global);
     }));
+
+    context.subscriptions.push(vscode.commands.registerCommand('arkademy.openWorkspaceSettings', async () => {
+        vscode.commands.executeCommand("workbench.action.openWorkspaceSettings");
+    }));
+
     context.subscriptions.push(vscode.commands.registerCommand('arkademy.setup_vscode', async () => {
         const filePath = await vscode.window.showQuickPick(["Yes", "No"], {
             placeHolder: 'Setup as Arkademy',

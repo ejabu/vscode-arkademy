@@ -25,10 +25,7 @@
         "Other"
     ],
     "activationEvents": [
-        "*",
-        "onCommand:arkademy.setup_vscode",
-        "onCommand:arkademy.get_unique_date",
-        "onCommand:toggle.editor.renderIndentGuides"
+        "*"
     ],
     "extensionDependencies": [
         "huacnlee.theme-macos-classic",
@@ -108,18 +105,38 @@
         ],
         "commands": [
             {
+                "command": "arkademy.openWorkspaceSettings",
+                "title": "Show Workspace Setup",
+                "category": "Arkademy"
+            },
+            {
                 "command": "toggle.editor.renderIndentGuides",
-                "title": "Toggle Render Indent Guides"
+                "title": "Toggle Render Indent Guides",
+                "category": "Arkademy"
             },
             {
                 "command": "arkademy.setup_vscode",
-                "title": "Arkademy : Setup Vscode"
+                "title": "Setup Vscode",
+                "category": "Arkademy",
+                "icon":{
+                    "light": "images/arkana-dark.svg",
+                    "dark": "images/arkana-dark.svg"
+                }
             },
             {
                 "command": "arkademy.get_unique_date",
-                "title": "Arkademy : Random Unique ID for XML"
+                "title": "Random Unique ID for XML",
+                "category": "Arkademy"
             }
         ],
+        "menus": {
+            "editor/title": [
+                {
+                    "command": "arkademy.openWorkspaceSettings",
+                    "group": "3_open"
+                }
+            ]
+        },
         "keybindings": [
             {
                 "key": "alt+5",
@@ -701,14 +718,6 @@
                 "key": "alt+v",
                 "command": "arkademy.get_unique_date",
                 "when": "editorTextFocus"
-            }
-        ]
-    },
-    "menus": {
-        "view/title": [
-            {
-                "command": "arkademy.setup_vscode",
-                "when": "view == arkademyWindow"
             }
         ]
     },
