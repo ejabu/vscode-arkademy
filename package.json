@@ -485,7 +485,8 @@
             },
             {
                 "key": "alt+o",
-                "command": "breadcrumbs.focusAndSelect"
+                "command": "breadcrumbs.focusAndSelect",
+                "when": "breadcrumbsPossible"
             },
             {
                 "key": "shift+alt+o",
@@ -528,12 +529,12 @@
             {
                 "key": "delete",
                 "command": "git.unstage",
-                "when": "activeViewlet == 'workbench.view.scm' && !editorTextFocus"
+                "when": "activeViewlet == 'workbench.view.scm' && !editorTextFocus !findInputFocussed"
             },
             {
                 "key": "enter",
                 "command": "git.stage",
-                "when": "activeViewlet == 'workbench.view.scm' && !editorTextFocus"
+                "when": "activeViewlet == 'workbench.view.scm' && !editorTextFocus && !findInputFocussed"
             },
             {
                 "key": "ctrl+alt+down",
@@ -590,6 +591,11 @@
                 "key": "f4",
                 "command": "search.action.focusNextSearchResult",
                 "when": "searchViewletVisible && hasSearchResult"
+            },
+            {
+                "key": "enter",
+                "command": "editor.action.nextMatchFindAction",
+                "when": "findInputFocussed"
             },
             {
                 "key": "ctrl+enter",
