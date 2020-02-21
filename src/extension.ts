@@ -128,7 +128,7 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.commands.executeCommand("editor.action.indentationToTabs");
     }));
 
-    context.subscriptions.push(vscode.commands.registerCommand('arkademy.toggleBreadcumb', async () => {
+    context.subscriptions.push(vscode.commands.registerCommand('arkademy.toggleBreadcrumb', async () => {
         vscode.commands.executeCommand("breadcrumbs.toggle");
     }));
 
@@ -148,7 +148,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     context.subscriptions.push(vscode.commands.registerCommand('arkademy.setup_vscode', async () => {
         const dialogOption = await vscode.window.showQuickPick(["Iya, biar lebih mudah", "Tidak"], {
-            placeHolder: 'Anda ingin konfigurasi disesuaikan dengan Trainer ? (Compact Folder, Autosave, Emmet disable, Breadcumb disable dan lain2)',
+            placeHolder: 'Anda ingin konfigurasi disesuaikan dengan Trainer ? (Compact Folder, Autosave, Emmet disable, Hide Breadcrumb dan lain2)',
             onDidSelectItem: (dialogOption) => {
                 if (dialogOption == "Iya, biar lebih mudah") {
                     vscode.window.showInformationMessage(`Good Choice !!`)

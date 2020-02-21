@@ -110,7 +110,7 @@
                 "category": "Arkademy"
             },
             {
-                "command": "arkademy.toggleBreadcumb",
+                "command": "arkademy.toggleBreadcrumb",
                 "title": "Hide/Show Breadcrumb",
                 "category": "Arkademy"
             },
@@ -192,7 +192,7 @@
             ],
             "editor/title/context": [
                 {
-                    "command": "arkademy.toggleBreadcumb",
+                    "command": "arkademy.toggleBreadcrumb",
                     "group": "1_aa"
                 },
                 {
@@ -480,8 +480,21 @@
                 "command": "outline.focus"
             },
             {
+                "key": "meta+o",
+                "command": "breadcrumbs.toggle"
+            },
+            {
                 "key": "alt+o",
+                "command": "breadcrumbs.focusAndSelect"
+            },
+            {
+                "key": "shift+alt+o",
                 "command": "workbench.action.gotoSymbol"
+            },
+            {
+                "key": "alt+o",
+                "command": "breadcrumbs.toggle",
+                "when": "!breadcrumbsPossible"
             },
             {
                 "key": "alt+o",
