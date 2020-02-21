@@ -367,6 +367,13 @@
 				"fontStyle": "italic"
 			}
 		},
+    {
+      "name": "Comments SQL",
+      "scope": ["comment.line.double-dash.sql"],
+      "settings": {
+        "foreground": "#F95B88"
+      }
+    },
 		{
 			"name": "Python Docstring",
 			"scope": "string.quoted.docstring.multi.python, string.quoted.docstring.multi.python keyword.control.flow.python",
