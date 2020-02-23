@@ -37,7 +37,7 @@
 		]
 	},
 	"New - Class 1": {
-		"prefix": "New - View (Tree, Form, Action, Menu) (Standard)",
+		"prefix": "New - View (Standard)",
 		"body": [
 			"$0<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
 			"<odoo>",
@@ -105,7 +105,7 @@
 		]
 	},
 	"New - Class 2": {
-		"prefix": "New - View (Tree, Form, Action, Menu) (Training)",
+		"prefix": "New - View (Training)",
 		"body": [
 			"$0<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
 			"<odoo>",

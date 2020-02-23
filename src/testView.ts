@@ -16,26 +16,33 @@ export class TaskTreeDataProvider implements vscode.TreeDataProvider<TreeTask> {
 	}
 
 	public async getChildren(task?: TreeTask): Promise<TreeTask[]> {
-	
-		// let tasks = await vscode.tasks.fetchTasks().then(function (value) {
-		// 	return value;
-		// });
 
 		let taskNames: TreeTask[] = [];
 		if (true) {
-			for (var i = 0; i < 1; i++ ) {
+			for (var i = 0; i < 1; i++) {
 				taskNames[i] = new TreeTask(
-					"npm", 
-					"Setup Config", 
-					vscode.TreeItemCollapsibleState.None, 
-					{ 
-						// command: 'taskOutline.executeTask', title: "Execute", arguments: [tasks[i]] }
-						command: 'arkademy.setup_vscode', title: "Execute" }
-					);
+					"npm",
+					"Setup Config",
+					vscode.TreeItemCollapsibleState.None,
+					{
+						command: 'arkademy.setup_vscode', title: "Execute"
+					}
+				);
 			}
 		}
+		taskNames.push(new TreeTask(
+			"npm",
+			"Setup Launch Json",
+			vscode.TreeItemCollapsibleState.None,
+			{
+				title: "Execute",
+				command: "arkademy.createLaunchJson",
+			}
+		)
+
+		)
 		return taskNames;
-	
+
 	}
 
 	getTreeItem(task: TreeTask): vscode.TreeItem {
@@ -47,8 +54,8 @@ class TreeTask extends vscode.TreeItem {
 	type: string;
 
 	constructor(
-		type: string, 
-		label: string, 
+		type: string,
+		label: string,
 		collapsibleState: vscode.TreeItemCollapsibleState,
 		command?: vscode.Command
 	) {
@@ -56,5 +63,5 @@ class TreeTask extends vscode.TreeItem {
 		this.type = type;
 		this.command = command;
 	}
-	 
+
 }

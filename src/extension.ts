@@ -1,5 +1,6 @@
 'use strict';
 import * as vscode from 'vscode';
+import * as fs from 'fs';
 // @ts-ignore
 import { config } from "./settingsJson";
 
@@ -50,7 +51,7 @@ class PsqlDocumentSymbolProvider implements vscode.DocumentSymbolProvider {
                     aliasPosition.push([i, (i + barisContent - 1)])
                     aliasName.push(content.match(/\w+(?=\s+AS \()/i)[0])
                     i += (barisContent - 1)
-                    if (content.match(/\w+(?=\s+AS \()/i)[0] == 'target'){
+                    if (content.match(/\w+(?=\s+AS \()/i)[0] == 'target') {
                         console.log("ASd")
                     }
                     // untuk terakhir
@@ -95,6 +96,7 @@ export function activate(context: vscode.ExtensionContext) {
     // new TaskTreeDataProvider(context);
 
     const taskTreeDataProvider = new TaskTreeDataProvider(context);
+    vscode.window.registerTreeDataProvider('testView', taskTreeDataProvider);
 
     context.subscriptions.push(vscode.languages.registerDocumentSymbolProvider(
         { language: "sql" }, new PsqlDocumentSymbolProvider()
@@ -112,7 +114,6 @@ export function activate(context: vscode.ExtensionContext) {
                 6000)
         }
     })
-    vscode.window.registerTreeDataProvider('testView', taskTreeDataProvider);
 
     context.subscriptions.push(vscode.commands.registerCommand('arkademy.toggleIndentGuides', async () => {
         var currentState = await vscode.workspace.getConfiguration('editor')
@@ -178,4 +179,58 @@ export function activate(context: vscode.ExtensionContext) {
             editor.selection = new vscode.Selection(cursorEndPosition, cursorEndPosition);
         });
     }));
+
+
+    let disposable = vscode.commands.registerCommand('arkademy.createLaunchJson', async () => {
+        const dialogOption = await vscode.window.showQuickPick(["Iya, biar lebih mudah", "Tidak"], {
+            placeHolder: 'Anda ingin running Odoo dengan Tombol? (Debugging, No Connect Timeout)',
+            onDidSelectItem: (dialogOption) => {
+                if (dialogOption == "Iya, biar lebih mudah") {
+                    vscode.window.showInformationMessage(`Good Choice !!`)
+                }
+                else {
+                    vscode.window.showInformationMessage(`Very Bad Choice !!`)
+                }
+            }
+        });
+        if (dialogOption == "Iya, biar lebih mudah") {
+            vscode.window.showInformationMessage('New Launch.json is created!');
+            if (vscode.workspace.workspaceFolders && vscode.workspace.workspaceFolders.length > 0) {
+                var filePath: string = vscode.workspace.rootPath || ''
+                filePath += '/.vscode'
+                if (!fs.existsSync(filePath)) {
+                    fs.mkdirSync(filePath);
+                }
+                let fileName: string = filePath + '/launch.json'
+
+                if (!fs.existsSync(fileName)) {
+                    fs.createWriteStream(fileName).close();
+                    vscode.workspace.openTextDocument(fileName).then((a: vscode.TextDocument) => {
+                        vscode.window.showTextDocument(a, 1, false).then(e => {
+                            e.edit(edit => {
+                                edit.insert(new vscode.Position(0, 0), "Odoo ");
+                            }).then(success => {
+                                console.log(success);
+                                vscode.commands.executeCommand("editor.action.triggerSuggest");
+                            })
+                        });
+                    }, (error: any) => {
+                        console.error(error);
+                        debugger;
+                    });
+                } else {
+                    vscode.workspace.openTextDocument(fileName).then((a: vscode.TextDocument) => {
+                        vscode.window.showTextDocument(a, 1, false).then(e => {
+                        });
+                    }, (error: any) => {
+                        console.error(error);
+                        debugger;
+                    });
+                }
+
+            }
+        }
+    });
+
+    context.subscriptions.push(disposable);
 }

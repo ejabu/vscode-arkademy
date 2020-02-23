@@ -144,6 +144,15 @@
                 }
             },
             {
+                "command": "arkademy.createLaunchJson",
+                "title": "Create Odoo Launch Json",
+                "category": "Arkademy",
+                "icon": {
+                    "light": "images/arkana-dark.svg",
+                    "dark": "images/arkana-dark.svg"
+                }
+            },
+            {
                 "command": "arkademy.openSettingsJson",
                 "title": "Open Settings JSON",
                 "category": "Arkademy"
@@ -529,12 +538,12 @@
             {
                 "key": "delete",
                 "command": "git.unstage",
-                "when": "activeViewlet == 'workbench.view.scm' && !editorTextFocus !findInputFocussed"
+                "when": "sideBarFocus && activeViewlet == 'workbench.view.scm' && !editorTextFocus && !findInputFocussed && !inQuickOpen"
             },
             {
                 "key": "enter",
                 "command": "git.stage",
-                "when": "activeViewlet == 'workbench.view.scm' && !editorTextFocus && !findInputFocussed"
+                "when": "sideBarFocus && activeViewlet == 'workbench.view.scm' && !editorTextFocus && !findInputFocussed && !inQuickOpen"
             },
             {
                 "key": "ctrl+alt+down",
