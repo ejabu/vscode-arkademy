@@ -670,7 +670,7 @@
 	"Invisible (Complex)": {
 		"prefix": "Invisible (Complex)",
 		"body": [
-			"attrs=\"{'invisible':[('payment_method', '=', 'cash')]}\""
+			"attrs=\"{'invisible':[('${1:state}', '=', '${2:open}')]}\""
 		],
 	},
 	"Invisible (States)": {
@@ -682,7 +682,7 @@
 	"Readonly (Complex)": {
 		"prefix": "Readonly (Complex)",
 		"body": [
-			"attrs=\"{'readonly': [('state', '=', 'open')]}\"",
+			"attrs=\"{'readonly': [('${1:state}', '=', '${2:open}')]}\"",
 		],
 	},
 	"context popup 1": {
