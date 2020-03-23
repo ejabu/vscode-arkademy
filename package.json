@@ -717,7 +717,7 @@
             {
                 "key": "ctrl+;",
                 "command": "workbench.action.debug.start",
-                "when": "!inDebugMode"
+                "when": "!inDebugMode && debugState == 'inactive'"
             },
             {
                 "key": "ctrl+;",
