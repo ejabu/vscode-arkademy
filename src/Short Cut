@@ -1,0 +1,30 @@
+
+
+Ctrl X Tanpa Cursor
+
+Ctrl Shift D Duplicate
+
+Alt ]
+Alt [
+
+
+Ctrl ;
+
+
+
+
+        "languages": [
+            {
+                "id": "sql",
+                "aliases": ["PGEJA", "sql"],
+                "extensions": [".psql"],
+                "configuration": "./language/psql-config.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "sql",
+                "scopeName": "source.pgsql",
+                "path": "./language/psql.tmLanguage"
+            }
+        ],
