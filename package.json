@@ -30,7 +30,6 @@
     "extensionDependencies": [
         "huacnlee.theme-macos-classic",
         "mechatroner.rainbow-csv",
-        "ms-python.python",
         "dotjoshjohnson.xml"
     ],
     "main": "./out/extension.js",
